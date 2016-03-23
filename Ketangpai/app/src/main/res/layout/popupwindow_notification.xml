@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorNormalText">
+
+            <TextView
+                android:id="@+id/tv_notification_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="6dp"
+                android:paddingLeft="12dp"
+                android:paddingTop="6dp"
+                android:text="查看历史"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_notification_ignore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingBottom="6dp"
+                android:paddingRight="12dp"
+                android:paddingTop="6dp"
+                android:text="忽略"
+                android:textSize="12sp"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</ScrollView>
