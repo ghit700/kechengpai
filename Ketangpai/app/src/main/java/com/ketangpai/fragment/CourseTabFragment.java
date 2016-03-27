@@ -1,40 +1,53 @@
 package com.ketangpai.fragment;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 
+import com.ketangpai.activity.AddHomeWorkActivity;
 import com.ketangpai.adapter.CourseDataAdapter;
 import com.ketangpai.adapter.CourseNoticeAdapter;
 import com.ketangpai.adapter.CourseTExamAdapter;
 import com.ketangpai.adapter.CourseTHomeworkAdapter;
 import com.ketangpai.base.BaseAdapter;
 import com.ketangpai.base.BaseFragment;
+import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
+import com.shamanland.fab.ShowHideOnScroll;
 
 import java.util.List;
 
 /**
  * Created by nan on 2016/3/20.
  */
-public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, OnItemClickListener, View.OnClickListener {
 
     //view
-    TextView mPublishText;
+    FloatingActionButton mPublishBtn;
     RecyclerView mTabList;
     SwipeRefreshLayout mSwipeRefreshLayout;
+    LinearLayout mllSimple, mllGroup;
+
 
     //adapter
-    BaseAdapter mTabAdapter;
+    private BaseAdapter mTabAdapter;
 
     //变量
-    List mTabContents;
-    private int position;
+    private List mTabContents;
+    private int mPosition;
+    private boolean isOpen;
+    private Animation mAddCloseAnim, mAddOpenAnim;
+
 
     public void setPosition(int position) {
-        this.position = position;
+        this.mPosition = position;
     }
 
     public static CourseTabFragment newInstance(int positon) {
@@ -51,8 +64,8 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
 
     @Override
     protected void initView() {
-        mPublishText = (TextView) view.findViewById(R.id.tv_course_tab_publish);
-        mSwipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.fresh_course_tab);
+        mPublishBtn = (FloatingActionButton) view.findViewById(R.id.btn_course_tab_publish);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fresh_course_tab);
         mTabList = (RecyclerView) view.findViewById(R.id.list_course_tab);
         initTabList();
 
@@ -60,6 +73,8 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
 
     @Override
     protected void initData() {
+        initAnim();
+        isOpen = false;
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         for (int i = 0; i < 10; ++i) {
             mTabAdapter.addItem(i, "ssss");
@@ -68,7 +83,11 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
 
     @Override
     protected void initListener() {
+
         mSwipeRefreshLayout.setOnRefreshListener(this);
+        mTabAdapter.setOnItemClickListener(this);
+        mPublishBtn.setOnClickListener(this);
+        mTabList.setOnTouchListener(new ShowHideOnScroll(mPublishBtn));
     }
 
     @Override
@@ -79,30 +98,25 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     private void initTabList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
         mTabList.setLayoutManager(linearLayoutManager);
-        changeTabAdaterByPosition(position,mContext);
+        changeTabAdaterByPosition(mPosition, mContext);
     }
 
     public void changeTabAdaterByPosition(int position, Context context) {
         switch (position) {
             case 0:
                 mTabAdapter = new CourseTHomeworkAdapter(context, mTabContents);
-                mPublishText.setText("发布新作业");
                 break;
             case 1:
                 mTabAdapter = new CourseDataAdapter(context, mTabContents);
-                mPublishText.setText("分享资料");
                 break;
             case 2:
                 mTabAdapter = new CourseNoticeAdapter(context, mTabContents);
-                mPublishText.setText("发布新公告");
                 break;
             case 3:
                 mTabAdapter = new CourseTExamAdapter(context, mTabContents);
-                mPublishText.setText("发布新测试");
                 break;
             case 4:
                 mTabAdapter = new CourseTExamAdapter(context, mTabContents);
-                mPublishText.setText("创建考勤");
                 break;
 
             default:
@@ -113,8 +127,66 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     }
 
 
+    private void initAnim() {
+        mAddCloseAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_close);
+        mAddOpenAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_open);
+
+    }
+
+    private void changeAddBtnAnim() {
+        if (isOpen) {
+            mPublishBtn.startAnimation(mAddCloseAnim);
+            isOpen = false;
+        } else {
+            mPublishBtn.startAnimation(mAddOpenAnim);
+            isOpen = true;
+
+        }
+    }
+
+
     @Override
     public void onRefresh() {
+
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        switch (mPosition) {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btn_course_tab_publish) {
+            changeAddBtnAnim();
+            switch (mPosition) {
+                case 0:
+                    startActivity(new Intent(mContext, AddHomeWorkActivity.class));
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+
+                default:
+                    break;
+            }
+        }
 
     }
 }

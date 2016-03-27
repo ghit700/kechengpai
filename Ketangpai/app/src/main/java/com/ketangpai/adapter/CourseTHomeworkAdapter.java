@@ -30,7 +30,6 @@ public class CourseTHomeworkAdapter extends BaseAdapter<String> implements Popup
         return R.layout.item_t_homework;
     }
 
-    MyPopupMenu mEditPopupMenu;
 
     @Override
     protected void bindData(ViewHolder holder, int position, String s) {
@@ -48,20 +47,20 @@ public class CourseTHomeworkAdapter extends BaseAdapter<String> implements Popup
 
         //设置事件
         //mEditImg点击事件
+        final MyPopupMenu mEditPopupMenu;
+        mEditPopupMenu = new MyPopupMenu(mContext, mEditImg, R.menu.t_homework_edit_menu);
+        mEditPopupMenu.setOnMenuItemClickListener(this);
         mEditImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mEditPopupMenu.show();
             }
         });
-        mEditPopupMenu = new MyPopupMenu(mContext, mEditImg, R.menu.t_homework_edit_menu);
-        mEditPopupMenu.setOnMenuItemClickListener(this);
 
         //初始化view的值
 
 
     }
-
 
 
     @Override

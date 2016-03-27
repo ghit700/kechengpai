@@ -13,37 +13,57 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"/>
 
-    <EditText
-        android:id="@+id/et_t_register_account"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="账号"
-        android:textSize="16sp"/>
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/et_t_register_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="密码"
-        android:textSize="16sp"/>
+        <EditText
+            android:id="@+id/et_t_register_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="账号"
+            android:textSize="16sp"/>
+    </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/et_t_register_name"
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="姓名"
-        android:textSize="16sp"/>
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/et_t_register_school"
+        <EditText
+            android:id="@+id/et_t_register_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="密码"
+            android:textSize="16sp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="学校"
-        android:textSize="16sp"/>
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_t_register_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="姓名"
+            android:textSize="16sp"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_t_register_school"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="学校"
+            android:textSize="16sp"/>
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/btn_register"

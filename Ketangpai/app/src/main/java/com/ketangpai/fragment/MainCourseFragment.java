@@ -114,7 +114,7 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     @Override
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(mContext, CourseActivity.class);
-        intent.putExtra("name", ((TextView) view.findViewById(R.id.tv_item_courseName)).getText().toString() + position);
+        intent.putExtra("course", ((TextView) view.findViewById(R.id.tv_item_courseName)).getText().toString() + position);
         intent.putExtra("position",position);
         startActivity(intent);
     }

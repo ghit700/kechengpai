@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;

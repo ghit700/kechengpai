@@ -28,6 +28,6 @@
         <activity android:name="com.ketangpai.activity.ChatActivity"></activity>
         <activity android:name="com.ketangpai.activity.NotificationActivity"></activity>
         <activity android:name="com.ketangpai.activity.AccountActivity"></activity>
-
+        <activity android:name="com.ketangpai.activity.AddHomeWorkActivity"></activity>
     </application>
 </manifest>
