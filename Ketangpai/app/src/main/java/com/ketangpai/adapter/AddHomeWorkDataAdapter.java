@@ -30,7 +30,6 @@ public class AddHomeWorkDataAdapter extends BaseAdapter {
     protected void bindData(ViewHolder holder, int position, Object item) {
         TextView fileName= (TextView) holder.getViewById(R.id.data_fileName);
         TextView fileSize= (TextView) holder.getViewById(R.id.data_fileSize);
-        ImageView clear= (ImageView) holder.getViewById(R.id.img_data_clear);
 
 
 
