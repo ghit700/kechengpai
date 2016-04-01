@@ -28,6 +28,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     //当前页面显示的fragment
     private Fragment mCurrentFragment;
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_main;
@@ -107,6 +108,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
             mCourseText.setTextColor(getResources().getColor(R.color.colorBottomTextNoSelected));
         }
 
+        ((MainActivity) mContext).setmCurrentFragment(mCouresFragment);
 
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,8 +19,7 @@ import com.ketangpai.nan.ketangpai.R;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 
 /**
  * Created by nan on 2016/3/27.
@@ -72,7 +72,6 @@ public class AddHomeWorkFragment extends BaseFragment {
 
     private void initDataList() {
         listAddHomeworkData= (RecyclerView) view.findViewById(R.id.list_add_homework_data);
-
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
         listAddHomeworkData.setLayoutManager(linearLayoutManager);
         mDataList=new ArrayList();

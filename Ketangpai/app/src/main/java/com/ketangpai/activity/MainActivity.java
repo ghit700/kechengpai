@@ -55,6 +55,8 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     private MainFragment mMainFragment;
     //actionbar开关对象
     private ActionBarDrawerToggle mDrawerToggle;
+    //当前的fragment
+    private Fragment mCurrentFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
@@ -83,6 +85,7 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     protected void initVariables() {
         super.initVariables();
         mMainFragment = new MainFragment();
+        mCurrentFragment=new MainCourseFragment();
 
     }
 
@@ -120,13 +123,13 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
                 mDrawerContainer.closeDrawer(Gravity.LEFT);
                 mMainFragment.changeText(DrawerBaseActivity.COURSE);
                 selectNevigationText(DrawerBaseActivity.COURSE);
-                break;
+                return;
+
             case R.id.tv_main_drawerMessage:
                 mDrawerContainer.closeDrawer(Gravity.LEFT);
                 mMainFragment.changeText(DrawerBaseActivity.MESSAGE);
                 selectNevigationText(DrawerBaseActivity.MESSAGE);
-                break;
-
+                return;
             default:
                 break;
         }
@@ -136,9 +139,7 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
 
     @Override
     public void onItemClick(View view, int position) {
-
         super.onItemClick(view, position);
-        finish();
     }
 
     @Override
@@ -155,7 +156,9 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
 
         switch (item.getItemId()) {
             case R.id.search:
-                startActivity(new Intent(mContext, SearchActivity.class));
+                if(mCurrentFragment instanceof MainCourseFragment){
+                    startActivity(new Intent(mContext, SearchActivity.class));
+                }
                 break;
 
             case R.id.notify:
@@ -298,5 +301,7 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     }
 
 
-
+    public void setmCurrentFragment(Fragment mCurrentFragment) {
+        this.mCurrentFragment = mCurrentFragment;
+    }
 }

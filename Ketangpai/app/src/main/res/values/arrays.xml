@@ -6,13 +6,11 @@
         <item>资料</item>
         <item>公告</item>
         <item>测试</item>
-        <item>考勤</item>
     </array>
 
     <array name="search_tabs">
-        <item>班级</item>
         <item>作业</item>
-        <item>考试</item>
-        <item>学生</item>
+        <item>公告</item>
+        <item>测试</item>
     </array>
 </resources>

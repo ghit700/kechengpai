@@ -42,7 +42,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     //变量
     private List mTabContents;
     private int mPosition;
-    private boolean isOpen;
     private Animation mAddCloseAnim, mAddOpenAnim;
 
 
@@ -74,7 +73,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     protected void initData() {
         initAnim();
-        isOpen = false;
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         for (int i = 0; i < 10; ++i) {
             mTabAdapter.addItem(i, "ssss");
@@ -115,9 +113,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
             case 3:
                 mTabAdapter = new CourseTExamAdapter(context, mTabContents);
                 break;
-            case 4:
-                mTabAdapter = new CourseTExamAdapter(context, mTabContents);
-                break;
+
 
             default:
                 break;
@@ -131,18 +127,25 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
         mAddCloseAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_close);
         mAddOpenAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_open);
 
+        mAddOpenAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mPublishBtn.startAnimation(mAddCloseAnim);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
     }
 
-    private void changeAddBtnAnim() {
-        if (isOpen) {
-            mPublishBtn.startAnimation(mAddCloseAnim);
-            isOpen = false;
-        } else {
-            mPublishBtn.startAnimation(mAddOpenAnim);
-            isOpen = true;
 
-        }
-    }
 
 
     @Override
@@ -153,6 +156,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     public void onItemClick(View view, int position) {
         switch (mPosition) {
+
             case 0:
                 break;
             case 1:
@@ -169,7 +173,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_course_tab_publish) {
-            changeAddBtnAnim();
+            mPublishBtn.startAnimation(mAddOpenAnim);
             switch (mPosition) {
                 case 0:
                     startActivity(new Intent(mContext, AddHomeWorkActivity.class));

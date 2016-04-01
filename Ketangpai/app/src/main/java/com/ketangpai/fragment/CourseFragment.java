@@ -65,7 +65,6 @@ public class CourseFragment extends BaseFragment {
             }
         });
 
-        mTabs.setPadding(110, 0, 0, 0);
 
 
     }

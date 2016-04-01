@@ -87,6 +87,5 @@ public class SearchActivity extends BaseActivity implements View.OnClickListener
                 return 0;
             }
         });
-        mTabs.setPadding(150, 0, 0, 0);
     }
 }
