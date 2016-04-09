@@ -2,6 +2,7 @@ package com.ketangpai.fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -44,6 +45,11 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     private int mPosition;
     private Animation mAddCloseAnim, mAddOpenAnim;
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        mPublishBtn.startAnimation(mAddCloseAnim);
+    }
 
     public void setPosition(int position) {
         this.mPosition = position;
@@ -123,6 +129,8 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     }
 
 
+
+
     private void initAnim() {
         mAddCloseAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_close);
         mAddOpenAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_open);
@@ -135,7 +143,23 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                mPublishBtn.startAnimation(mAddCloseAnim);
+                switch (mPosition) {
+                    case 0:
+                        startActivity(new Intent(mContext, AddHomeWorkActivity.class));
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+
+                    default:
+                        break;
+                }
+
             }
 
             @Override
@@ -144,8 +168,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
             }
         });
     }
-
-
 
 
     @Override
@@ -174,23 +196,10 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     public void onClick(View v) {
         if (v.getId() == R.id.btn_course_tab_publish) {
             mPublishBtn.startAnimation(mAddOpenAnim);
-            switch (mPosition) {
-                case 0:
-                    startActivity(new Intent(mContext, AddHomeWorkActivity.class));
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
 
-                default:
-                    break;
-            }
         }
 
     }
+
+
 }

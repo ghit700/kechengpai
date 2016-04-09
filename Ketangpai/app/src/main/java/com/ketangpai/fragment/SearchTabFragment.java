@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.ketangpai.adapter.SearchTwoLineAdapter;
-import com.ketangpai.adapter.SearchSingleLineAdapter;
 import com.ketangpai.base.BaseAdapter;
 import com.ketangpai.base.BaseFragment;
 import com.ketangpai.nan.ketangpai.R;
@@ -86,7 +85,7 @@ public class SearchTabFragment extends BaseFragment implements SwipeRefreshLayou
     public void changeTabAdaterByPosition(int position, Context context) {
         switch (position) {
             case 0:
-                mTabAdapter = new SearchSingleLineAdapter(context, mTabContents);
+                mTabAdapter = new SearchTwoLineAdapter(context, mTabContents);
                 break;
             case 1:
                 mTabAdapter = new SearchTwoLineAdapter(context, mTabContents);
@@ -94,9 +93,7 @@ public class SearchTabFragment extends BaseFragment implements SwipeRefreshLayou
             case 2:
                 mTabAdapter = new SearchTwoLineAdapter(context, mTabContents);
                 break;
-            case 3:
-                mTabAdapter = new SearchTwoLineAdapter(context, mTabContents);
-                break;
+
             default:
                 break;
         }

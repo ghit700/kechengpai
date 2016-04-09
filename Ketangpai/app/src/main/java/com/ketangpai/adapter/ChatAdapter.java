@@ -47,6 +47,7 @@ public class ChatAdapter extends BaseAdapter {
         } else {
             return R.layout.item_chat_receiver;
         }
+
     }
 
     @Override

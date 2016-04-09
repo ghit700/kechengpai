@@ -55,8 +55,6 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     private MainFragment mMainFragment;
     //actionbar开关对象
     private ActionBarDrawerToggle mDrawerToggle;
-    //当前的fragment
-    private Fragment mCurrentFragment;
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
@@ -85,7 +83,6 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     protected void initVariables() {
         super.initVariables();
         mMainFragment = new MainFragment();
-        mCurrentFragment=new MainCourseFragment();
 
     }
 
@@ -156,13 +153,14 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
 
         switch (item.getItemId()) {
             case R.id.search:
-                if(mCurrentFragment instanceof MainCourseFragment){
-                    startActivity(new Intent(mContext, SearchActivity.class));
-                }
+
+                startActivity(new Intent(mContext, SearchActivity.class));
+
                 break;
 
             case R.id.notify:
-                showPopupWindow(mToolbar);
+//                showPopupWindow(mToolbar);
+                startActivity(new Intent(mContext, NotificationActivity.class));
                 break;
         }
         return true;
@@ -261,47 +259,44 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
         return super.onCreateOptionsMenu(menu);
     }
 
-    private void showPopupWindow(Toolbar mToolbar) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.popupwindow_notification, null, false);
+//    private void showPopupWindow(Toolbar mToolbar) {
+//        View view = LayoutInflater.from(mContext).inflate(R.layout.popupwindow_notification, null, false);
+//
+//        //初始化itemview
+//        TextView history = (TextView) view.findViewById(R.id.tv_notification_history);
+//        TextView ignore = (TextView) view.findViewById(R.id.tv_notification_ignore);
+//        RecyclerView notificationList = (RecyclerView) view.findViewById(R.id.list_notification);
+//
+//        //设置事件
+//        history.setOnClickListener(this);
+//        ignore.setOnClickListener(this);
+//
+//        //初始化view的值
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+//        notificationList.setLayoutManager(linearLayoutManager);
+//        mNotificationContents = new ArrayList();
+//        notificationList.setAdapter(new NotificationAdapter(mContext, mNotificationContents));
+//
+//        for (int i = 0; i < 10; ++i) {
+//            mNotificationContents.add("11111");
+//        }
+//
+//        final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
+//
+//        popupWindow.setTouchable(true);
+//        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                return false;
+//            }
+//        });
+//
+//        popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
+//
+//        popupWindow.showAsDropDown(mToolbar, 100, 0);
+//
+//
+//    }
 
-        //初始化itemview
-        TextView history = (TextView) view.findViewById(R.id.tv_notification_history);
-        TextView ignore = (TextView) view.findViewById(R.id.tv_notification_ignore);
-        RecyclerView notificationList = (RecyclerView) view.findViewById(R.id.list_notification);
 
-        //设置事件
-        history.setOnClickListener(this);
-        ignore.setOnClickListener(this);
-
-        //初始化view的值
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
-        notificationList.setLayoutManager(linearLayoutManager);
-        mNotificationContents = new ArrayList();
-        notificationList.setAdapter(new NotificationAdapter(mContext, mNotificationContents));
-
-        for (int i = 0; i < 10; ++i) {
-            mNotificationContents.add("11111");
-        }
-
-        final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-
-        popupWindow.setTouchable(true);
-        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return false;
-            }
-        });
-
-        popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
-
-        popupWindow.showAsDropDown(mToolbar, 100, 0);
-
-
-    }
-
-
-    public void setmCurrentFragment(Fragment mCurrentFragment) {
-        this.mCurrentFragment = mCurrentFragment;
-    }
 }

@@ -4,11 +4,13 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.SparseArray;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.ketangpai.listener.OnItemClickListener;
+import com.ketangpai.nan.ketangpai.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,7 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
     protected final Context mContext;
     protected final List<E> mDataList;
     protected LayoutInflater mLayoutInflater;
+    protected TypedValue typedValue;
 
     public BaseAdapter(Context mContext, List<E> mDataList) {
         this.mContext = mContext;
@@ -42,7 +45,10 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new ViewHolder(mLayoutInflater.inflate(getItemLayoutId(viewType), parent, false));
+        View view = mLayoutInflater.inflate(getItemLayoutId(viewType), parent, false);
+        typedValue = new TypedValue();
+        mContext.getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);
+        return new ViewHolder(view);
     }
 
     protected abstract int getItemLayoutId(int viewType);

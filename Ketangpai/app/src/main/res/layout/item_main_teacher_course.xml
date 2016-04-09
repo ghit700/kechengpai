@@ -27,26 +27,26 @@
             android:textSize="20sp"/>
 
         <ImageView
-            android:layout_marginTop="-10dp"
-            android:padding="10dp"
             android:id="@+id/img_item_courseMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
+            android:layout_marginTop="-10dp"
+            android:padding="10dp"
             android:src="@drawable/ic_menu_moreoverflow_mtrl_alpha"/>
 
         <TextView
-        android:gravity="center_vertical"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/tv_item_courseCode"
-        android:drawableRight="@drawable/ic_arrow_vote_down_white_18dp"
-        android:text="JFKLSDJKL"
-        android:textSize="16sp"
-        android:textColor="#fff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+            android:id="@+id/tv_item_courseCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@drawable/ic_arrow_vote_down_white_18dp"
+            android:gravity="center_vertical"
+            android:text="JFKLSDJKL"
+            android:textColor="#fff"
+            android:textSize="16sp"/>
 
 
         <TextView

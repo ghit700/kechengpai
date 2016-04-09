@@ -219,12 +219,12 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
     }
 
     protected void showExitDialog() {
-        new AlertDialog.Builder(mContext).setTitle("退出登录").setMessage("是否确认退出登录").setPositiveButton("确认", new DialogInterface.OnClickListener() {
+        new AlertDialog.Builder(mContext).setTitle("退出登录").setMessage("是否确认退出登录").setPositiveButton("取消", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
             }
-        }).setNegativeButton("取消", new DialogInterface.OnClickListener() {
+        }).setNegativeButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
             }

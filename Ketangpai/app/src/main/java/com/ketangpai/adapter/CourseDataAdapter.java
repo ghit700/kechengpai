@@ -1,9 +1,6 @@
 package com.ketangpai.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,13 +21,15 @@ public class CourseDataAdapter extends BaseAdapter<String> {
 
     @Override
     protected int getItemLayoutId(int viewType) {
-        return R.layout.item_data;
+        return R.layout.item_course_data;
     }
 
     @Override
     protected void bindData(ViewHolder holder, int position, String s) {
         TextView mFileNameText = (TextView) holder.getViewById(R.id.tv_share_fileName);
         ImageView mFilePicImg = (ImageView) holder.getViewById(R.id.img_share_picImg);
+
+        holder.itemView.setBackgroundResource(typedValue.resourceId);
     }
 
 

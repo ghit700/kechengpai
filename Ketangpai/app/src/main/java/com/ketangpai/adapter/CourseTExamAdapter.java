@@ -1,10 +1,8 @@
 package com.ketangpai.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -27,7 +25,7 @@ public class CourseTExamAdapter extends BaseAdapter<String> implements PopupMenu
 
     @Override
     protected int getItemLayoutId(int viewType) {
-        return R.layout.item_t_exam;
+        return R.layout.item_course_t_exam;
     }
 
 

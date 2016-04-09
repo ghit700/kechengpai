@@ -1,10 +1,8 @@
 package com.ketangpai.adapter;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
@@ -27,7 +25,7 @@ public class CourseTHomeworkAdapter extends BaseAdapter<String> implements Popup
 
     @Override
     protected int getItemLayoutId(int viewType) {
-        return R.layout.item_t_homework;
+        return R.layout.item_course_t_homework;
     }
 
 
