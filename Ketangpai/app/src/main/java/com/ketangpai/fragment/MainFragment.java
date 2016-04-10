@@ -108,7 +108,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
             mCourseText.setTextColor(getResources().getColor(R.color.colorBottomTextNoSelected));
         }
 
-        ((MainActivity) mContext).setmCurrentFragment(mCouresFragment);
 
     }
 }
