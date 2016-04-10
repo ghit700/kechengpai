@@ -7,11 +7,11 @@ import android.net.NetworkInfo;
 /**
  * Created by nan on 2016/3/10.
  */
-public class NetUtils {
+public class NetUtil {
 
 
     public static boolean hasNetworkConnection() {
-        ConnectivityManager mConnectivityManager = (ConnectivityManager) AppContextUtils.getInstance()
+        ConnectivityManager mConnectivityManager = (ConnectivityManager) AppContextUtil.getInstance()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
         boolean connected = (null != mNetworkInfo)
@@ -26,7 +26,7 @@ public class NetUtils {
     }
 
     public static boolean isWifiReachable() {
-        ConnectivityManager mConnectivityManager = (ConnectivityManager) AppContextUtils.getInstance()
+        ConnectivityManager mConnectivityManager = (ConnectivityManager) AppContextUtil.getInstance()
                 .getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
 

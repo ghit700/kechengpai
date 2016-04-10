@@ -2,7 +2,7 @@ package com.ketangpai.application;
 
 import android.app.Application;
 
-import com.ketangpai.utils.AppContextUtils;
+import com.ketangpai.utils.AppContextUtil;
 
 
 /**
@@ -12,7 +12,7 @@ public class kechengpaiApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        AppContextUtils.initContext(this);
+        AppContextUtil.initContext(this);
 
     }
 }

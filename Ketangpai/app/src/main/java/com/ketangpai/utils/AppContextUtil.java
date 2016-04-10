@@ -5,7 +5,7 @@ import android.content.Context;
 /**
  * Created by nan on 2016/3/10.
  */
-public class AppContextUtils {
+public class AppContextUtil {
     private  static Context mContext;
 
     public static void initContext(Context Context){
