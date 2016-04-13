@@ -30,10 +30,8 @@ public class CourseDataAdapter extends BaseAdapter<String> {
         ImageView mFilePicImg = (ImageView) holder.getViewById(R.id.img_share_picImg);
 
         holder.itemView.setBackgroundResource(typedValue.resourceId);
+        mFileNameText.setText(s);
     }
-
-
-
 
 
 }
