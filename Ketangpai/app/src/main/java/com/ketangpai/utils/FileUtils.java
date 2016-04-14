@@ -9,7 +9,7 @@ import java.text.DecimalFormat;
 /**
  * Created by nan on 2016/4/10.
  */
-public class FileUtil {
+public class FileUtils {
     private final static String[] imageFormat = new String[]{"jpg", "png", ".bmp", "jpeg", "gif"};
     private final static String[] videoFormat = new String[]{"mp4", "avi", "3gp", "rmvb", "mov", "wmv", "fly"};
     private final static String[] documentFormat = new String[]{"txt", "pdf", "xlsx", "doc", "ppt", "pptx", "wps", "docx", "xls"};
@@ -30,6 +30,8 @@ public class FileUtil {
         fileName = path[path.length - 1];
         return fileName;
     }
+
+
 
     /**
      * 获取文件的大小，单位为MB

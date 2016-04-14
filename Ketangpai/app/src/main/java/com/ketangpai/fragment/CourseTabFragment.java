@@ -2,7 +2,6 @@ package com.ketangpai.fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Canvas;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -20,9 +19,10 @@ import com.ketangpai.adapter.CourseTExamAdapter;
 import com.ketangpai.adapter.CourseTHomeworkAdapter;
 import com.ketangpai.base.BaseAdapter;
 import com.ketangpai.base.BaseFragment;
+import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
-import com.ketangpai.utils.FileUtil;
+import com.ketangpai.utils.FileUtils;
 import com.shamanland.fab.ShowHideOnScroll;
 
 import java.util.ArrayList;
@@ -38,7 +38,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     RecyclerView mTabList;
     SwipeRefreshLayout mSwipeRefreshLayout;
     LinearLayout mllSimple, mllGroup;
-
 
     //adapter
     private BaseAdapter mTabAdapter;
@@ -65,7 +64,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
         return fragment;
     }
 
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_course_tab;
@@ -84,9 +82,9 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     protected void initData() {
         initAnim();
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-        for (int i = 0; i < 10; ++i) {
-            mTabAdapter.addItem(i, "ssss");
-        }
+//        for (int i = 0; i < 10; ++i) {
+//            mTabAdapter.addItem(i, "ssss");
+//        }
     }
 
     @Override
@@ -125,14 +123,12 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
                 mTabAdapter = new CourseTExamAdapter(context, mTabContents);
                 break;
 
-
             default:
                 break;
         }
         mTabList.setAdapter(mTabAdapter);
 
     }
-
 
     private void initAnim() {
         mAddCloseAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_close);
@@ -178,7 +174,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
 
     }
 
-
     @Override
     public void onItemClick(View view, int position) {
         switch (mPosition) {
@@ -221,9 +216,11 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
         //
         if (requestCode == OPEN_DOCUMENT_REQUEST && resultCode == getActivity().RESULT_OK) {
             Uri uri = data.getData();
-            String fileName = FileUtil.getFileName(uri);
-            int fileType = FileUtil.getFileType(fileName);
-            mTabAdapter.addItem(mTabContents.size(), fileName);
+            String fileName = FileUtils.getFileName(uri);
+            int fileType = FileUtils.getFileType(fileName);
+            String size = FileUtils.getFileSize(uri);
+            DocumentFile documentFile = new DocumentFile(fileType, fileName, size,uri.getPath());
+            mTabAdapter.addItem(mTabContents.size(), documentFile);
         }
     }
 }

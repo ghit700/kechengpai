@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -18,8 +17,8 @@ import com.ketangpai.adapter.AddHomeWorkDataAdapter;
 import com.ketangpai.base.BaseFragment;
 import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.nan.ketangpai.R;
-import com.ketangpai.utils.FileUtil;
-import com.ketangpai.utils.TimeUtil;
+import com.ketangpai.utils.FileUtils;
+import com.ketangpai.utils.TimeUtils;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -67,8 +66,8 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
     @Override
     protected void initData() {
         initCurrentTime();
-        tvAddHomeworkEndDate.setText(TimeUtil.getCurrentDateFormat(mCalendar));
-        tvAddHomeworkEndTime.setText(TimeUtil.getCurrentTimeFormat(mCalendar));
+        tvAddHomeworkEndDate.setText(TimeUtils.getCurrentDateFormat(mCalendar));
+        tvAddHomeworkEndTime.setText(TimeUtils.getCurrentTimeFormat(mCalendar));
 
     }
 
@@ -177,9 +176,9 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
         //
         if (requestCode == CourseTabFragment.OPEN_DOCUMENT_REQUEST && resultCode == getActivity().RESULT_OK) {
             Uri uri = data.getData();
-            String fileName = FileUtil.getFileName(uri);
-            int fileType = FileUtil.getFileType(fileName);
-            String size = FileUtil.getFileSize(uri);
+            String fileName = FileUtils.getFileName(uri);
+            int fileType = FileUtils.getFileType(fileName);
+            String size = FileUtils.getFileSize(uri);
             DocumentFile file = new DocumentFile(fileType, fileName, size);
 
             mAddHomeWorkDataAdapter.addItem(mDataList.size(), file);

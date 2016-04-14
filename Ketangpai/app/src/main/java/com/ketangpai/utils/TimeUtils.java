@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Administrator on 2016/4/14.
  */
-public class TimeUtil {
+public class TimeUtils {
 
     public static String getCurrentTimeFormat(Calendar calendar) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
