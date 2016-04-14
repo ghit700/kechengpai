@@ -196,7 +196,7 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
                     setListViewHeightBasedOnChildren(listAddHomeworkData);
 
                 }
-            }, 10000);
+            }, 200);
 
         }
     }
@@ -209,7 +209,6 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
         }
 
         int totalHeight = 0;
-        Log.i("wu", "  " + recyclerView.getChildCount());
         View listItem = recyclerView.getChildAt(0);
         for (int i = 0, len = listAdapter.getItemCount(); i < len; i++) {
             // listAdapter.getCount()返回数据项的数目
@@ -222,7 +221,6 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
 
         ViewGroup.LayoutParams params = recyclerView.getLayoutParams();
         params.height = totalHeight;
-        Log.i("wu", params.height + "  ");
         // listView.getDividerHeight()获取子项间分隔符占用的高度
         // params.height最后得到整个ListView完整显示需要的高度
         recyclerView.setLayoutParams(params);
