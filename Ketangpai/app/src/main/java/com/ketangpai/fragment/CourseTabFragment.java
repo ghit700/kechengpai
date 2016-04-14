@@ -47,7 +47,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     private List mTabContents;
     private int mPosition;
     private Animation mAddCloseAnim, mAddOpenAnim;
-    private final int OPEN_DOCUMENT_REQUEST = 1;
+    public static final int OPEN_DOCUMENT_REQUEST = 1;
 
     @Override
     public void onStop() {

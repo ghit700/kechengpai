@@ -86,10 +86,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 finish();
                 break;
             case R.id.et_login_name:
-                mimm.showSoftInput(v, InputMethodManager.SHOW_FORCED);
+                mimm.showSoftInput(null, InputMethodManager.SHOW_FORCED);
                 break;
             case R.id.et_login_password:
-                mimm.showSoftInput(v, InputMethodManager.SHOW_FORCED);
+                mimm.showSoftInput(null, InputMethodManager.SHOW_FORCED);
                 break;
             case R.id.tv_login_register:
                 startChooseTypeDialog();

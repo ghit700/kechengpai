@@ -1,6 +1,8 @@
 package com.ketangpai.activity;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -9,11 +11,14 @@ import com.ketangpai.base.BaseToolbarActivity;
 import com.ketangpai.fragment.AddHomeWorkFragment;
 import com.ketangpai.nan.ketangpai.R;
 
+import java.util.Calendar;
+
 /**
  * Created by nan on 2016/3/27.
  */
 public class AddHomeWorkActivity extends BaseToolbarActivity {
 
+    private AddHomeWorkFragment mFragment;
 
     @Override
     protected int getContentViewId() {
@@ -22,7 +27,8 @@ public class AddHomeWorkActivity extends BaseToolbarActivity {
 
     @Override
     protected Fragment getLayoutFragment() {
-        return new AddHomeWorkFragment();
+        mFragment = new AddHomeWorkFragment();
+        return mFragment;
     }
 
     @Override
@@ -37,6 +43,7 @@ public class AddHomeWorkActivity extends BaseToolbarActivity {
 
     @Override
     protected void initListener() {
+
         super.initListener();
     }
 
@@ -47,24 +54,26 @@ public class AddHomeWorkActivity extends BaseToolbarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
-            break;
+                break;
             case R.id.send:
-            break;
+                mFragment.sendHomeWork();
+                break;
             case R.id.data:
-            break;
+                mFragment.openDocument();
+                break;
 
-            default :
-            break;
+            default:
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add_homework_menu,menu);
+        getMenuInflater().inflate(R.menu.add_homework_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
