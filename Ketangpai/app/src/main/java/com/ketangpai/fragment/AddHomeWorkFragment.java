@@ -8,8 +8,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -23,6 +26,8 @@ import com.ketangpai.utils.TimeUtils;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
 
 /**
  * Created by nan on 2016/3/27.
@@ -180,9 +185,47 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
             int fileType = FileUtils.getFileType(fileName);
             String size = FileUtils.getFileSize(uri);
             DocumentFile file = new DocumentFile(fileType, fileName, size);
+            for (int i = 0; i < 10; ++i) {
 
-            mAddHomeWorkDataAdapter.addItem(mDataList.size(), file);
+                mAddHomeWorkDataAdapter.addItem(mDataList.size(), file);
+            }
+
+            listAddHomeworkData.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setListViewHeightBasedOnChildren(listAddHomeworkData);
+
+                }
+            }, 10000);
+
         }
+    }
+
+    public void setListViewHeightBasedOnChildren(RecyclerView recyclerView) {
+        // 获取ListView对应的Adapter
+        RecyclerView.Adapter listAdapter = recyclerView.getAdapter();
+        if (listAdapter == null) {
+            return;
+        }
+
+        int totalHeight = 0;
+        Log.i("wu", "  " + recyclerView.getChildCount());
+        View listItem = recyclerView.getChildAt(0);
+        for (int i = 0, len = listAdapter.getItemCount(); i < len; i++) {
+            // listAdapter.getCount()返回数据项的数目
+
+            // 计算子项View 的宽高
+            listItem.measure(0, 0);
+            // 统计所有子项的总高度
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = recyclerView.getLayoutParams();
+        params.height = totalHeight;
+        Log.i("wu", params.height + "  ");
+        // listView.getDividerHeight()获取子项间分隔符占用的高度
+        // params.height最后得到整个ListView完整显示需要的高度
+        recyclerView.setLayoutParams(params);
     }
 
     /**
