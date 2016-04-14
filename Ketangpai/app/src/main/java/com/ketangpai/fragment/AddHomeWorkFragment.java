@@ -190,17 +190,22 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
                 mAddHomeWorkDataAdapter.addItem(mDataList.size(), file);
             }
 
+            //需要延迟,不然会获得不了界面
             listAddHomeworkData.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     setListViewHeightBasedOnChildren(listAddHomeworkData);
-
                 }
             }, 200);
 
         }
     }
 
+    /**
+     * 设置recyclerview的高度
+     *
+     * @param recyclerView
+     */
     public void setListViewHeightBasedOnChildren(RecyclerView recyclerView) {
         // 获取ListView对应的Adapter
         RecyclerView.Adapter listAdapter = recyclerView.getAdapter();
