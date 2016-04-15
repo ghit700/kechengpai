@@ -42,6 +42,7 @@ public class AccountActivity extends DrawerBaseActivity {
 
     @Override
     protected void initToolBar() {
+
         super.initToolBar();
         getSupportActionBar().setTitle("个人信息");
     }

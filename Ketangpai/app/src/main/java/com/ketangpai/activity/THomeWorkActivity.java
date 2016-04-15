@@ -2,14 +2,14 @@ package com.ketangpai.activity;
 
 import android.support.v4.app.Fragment;
 
+import com.ketangpai.base.BaseToolbarActivity;
 import com.ketangpai.base.DrawerBaseActivity;
 import com.ketangpai.nan.ketangpai.R;
 
 /**
  * Created by nan on 2016/4/10.
  */
-public class THomeWorkActivity extends DrawerBaseActivity {
-
+public class THomeWorkActivity extends BaseToolbarActivity {
 
     //variables
     private String homeworkName;
@@ -53,8 +53,8 @@ public class THomeWorkActivity extends DrawerBaseActivity {
     }
 
     @Override
-    protected void initToolBar() {
-        super.initToolBar();
+    protected void initToolbar() {
+        super.initToolbar();
         if (null != homeworkName) {
 
             getSupportActionBar().setTitle(homeworkName);

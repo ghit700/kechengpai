@@ -5,6 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.ketangpai.base.BaseToolbarActivity;
 import com.ketangpai.base.DrawerBaseActivity;
 import com.ketangpai.fragment.ChatFragment;
 import com.ketangpai.nan.ketangpai.R;
@@ -12,13 +13,16 @@ import com.ketangpai.nan.ketangpai.R;
 /**
  * Created by nan on 2016/3/18.
  */
-public class ChatActivity extends DrawerBaseActivity{
-
-
+public class ChatActivity extends BaseToolbarActivity {
 
     @Override
     protected int getContentViewId() {
         return R.layout.activity_base_nevigation;
+    }
+
+    @Override
+    protected Fragment getLayoutFragment() {
+        return new ChatFragment();
     }
 
     @Override
@@ -40,27 +44,5 @@ public class ChatActivity extends DrawerBaseActivity{
     protected void loadData() {
 
     }
-
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-    }
-
-    @Override
-    public void onItemClick(View view, int position) {
-        super.onItemClick(view, position);
-    }
-
-    @Override
-    protected void initToolBar() {
-        super.initToolBar();
-
-    }
-
-    @Override
-    protected Fragment getLayoutFragment() {
-        return new ChatFragment();
-    }
-
 
 }

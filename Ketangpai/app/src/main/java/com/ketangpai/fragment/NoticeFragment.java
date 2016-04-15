@@ -18,6 +18,7 @@ public class NoticeFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
+
         return R.layout.fragment_notice;
     }
 

@@ -14,11 +14,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ketangpai.base.BaseActivity;
+import com.ketangpai.bean.Student;
+import com.ketangpai.bean.Teacher;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.ActivityCollector;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-
 
 /**
  * Created by nan on 2016/3/9.
@@ -73,9 +74,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     }
 
-
     //初始化nameEdittext和passwordEdittext
-
 
     @Override
     public void onClick(View v) {
@@ -106,7 +105,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             public void onClick(DialogInterface dialog, int which) {
                 showRegisterDialog(0);
             }
-
 
         }).setPositiveButton("老师", new DialogInterface.OnClickListener() {
             @Override
@@ -149,13 +147,44 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     private void showRegisterDialog(int type) {
-        AlertDialog dialog = new AlertDialog.Builder(mContext).create();
+        final AlertDialog dialog = new AlertDialog.Builder(mContext).create();
+        dialog.setCanceledOnTouchOutside(false);
         View view;
-        if (type == 0) {
-            view = LayoutInflater.from(mContext).inflate(R.layout.dialog_register_student, null);
 
+        if (type == 1) {
+            view = LayoutInflater.from(mContext).inflate(R.layout.dialog_register_student, null);
         } else {
             view = LayoutInflater.from(mContext).inflate(R.layout.dialog_register_teacher, null);
+        }
+        EditText et_register_account = (EditText) view.findViewById(R.id.et_register_account);
+        EditText et_register_name = (EditText) view.findViewById(R.id.et_register_name);
+        EditText et_register_sid = (EditText) view.findViewById(R.id.et_register_sid);
+        EditText et_register_password = (EditText) view.findViewById(R.id.et_register_password);
+        EditText et_register_school = (EditText) view.findViewById(R.id.et_register_school);
+        Button btn_register = (Button) view.findViewById(R.id.btn_register);
+        Button btn_cancel = (Button) view.findViewById(R.id.btn_cancel);
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //注册
+            }
+        });
+
+        if (type == 0) {
+            //老师
+            Teacher teacher = new Teacher(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 0);
+            dialog.dismiss();
+        } else {
+            Student student = new Student(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_name.getText().toString(), Long.parseLong(et_register_sid.getText().toString()), et_register_school.getText().toString(), 1);
+            dialog.dismiss();
         }
 
         dialog.setView(view);
