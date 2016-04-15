@@ -33,5 +33,6 @@
         <activity android:name="com.ketangpai.activity.AddDataActivity"></activity>
         <activity android:name="com.ketangpai.activity.AddNoticekActivity"></activity>
         <activity android:name="com.ketangpai.activity.NoticeActivity"></activity>
+        <activity android:name="com.ketangpai.activity.DataActivity"></activity>
     </application>
 </manifest>

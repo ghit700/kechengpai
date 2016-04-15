@@ -13,6 +13,8 @@ import com.ketangpai.fragment.CourseTabFragment;
  */
 public class IntentUtils {
 
+    public static final int OPEN_DOCUMENT_REQUEST = 1;
+
     /**
      * 读取设备文档和视频,返回文件的Uri
      *
@@ -24,6 +26,6 @@ public class IntentUtils {
         //仅返回可以打开流的文件
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/video/audio/*");
-        fragment.startActivityForResult(intent, CourseTabFragment.OPEN_DOCUMENT_REQUEST);
+        fragment.startActivityForResult(intent, OPEN_DOCUMENT_REQUEST);
     }
 }

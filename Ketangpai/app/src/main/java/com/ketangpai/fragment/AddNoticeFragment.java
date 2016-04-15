@@ -18,6 +18,7 @@ import com.ketangpai.base.BaseFragment;
 import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.FileUtils;
+import com.ketangpai.utils.IntentUtils;
 import com.ketangpai.utils.TimeUtils;
 import com.ketangpai.view.FullyLinearLayoutManager;
 
@@ -99,7 +100,7 @@ public class AddNoticeFragment extends BaseFragment implements View.OnClickListe
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         //
-        if (requestCode == CourseTabFragment.OPEN_DOCUMENT_REQUEST && resultCode == getActivity().RESULT_OK) {
+        if (requestCode == IntentUtils.OPEN_DOCUMENT_REQUEST && resultCode == getActivity().RESULT_OK) {
             Uri uri = data.getData();
             String fileName = FileUtils.getFileName(uri);
             int fileType = FileUtils.getFileType(fileName);

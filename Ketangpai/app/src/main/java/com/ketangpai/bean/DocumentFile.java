@@ -23,23 +23,10 @@ public class DocumentFile {
      */
     private String size;
 
-    /**
-     * 文件路径
-     */
-    private String path;
-
     public DocumentFile(int type, String name, String size) {
         this.type = type;
         this.name = name;
         this.size = size;
-        path = Constant.ALBUM_PATH + Constant.DATA_Folder + File.separator + name;
-    }
-
-    public DocumentFile(int type, String name, String size, String path) {
-        this.type = type;
-        this.name = name;
-        this.size = size;
-        this.path = path;
     }
 
     public int getType() {
@@ -54,7 +41,4 @@ public class DocumentFile {
         return size;
     }
 
-    public String getPath() {
-        return path;
-    }
 }

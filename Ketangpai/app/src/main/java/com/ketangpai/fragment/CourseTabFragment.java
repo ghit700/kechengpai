@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 
 import com.ketangpai.activity.AddHomeWorkActivity;
 import com.ketangpai.activity.AddNoticekActivity;
+import com.ketangpai.activity.DataActivity;
 import com.ketangpai.activity.NoticeActivity;
 import com.ketangpai.adapter.CourseDataAdapter;
 import com.ketangpai.adapter.CourseNoticeAdapter;
@@ -41,7 +42,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     FloatingActionButton mPublishBtn;
     RecyclerView mTabList;
     SwipeRefreshLayout mSwipeRefreshLayout;
-    LinearLayout mllSimple, mllGroup;
 
     //adapter
     private BaseAdapter mTabAdapter;
@@ -50,9 +50,8 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     private List mTabContents;
     private int mPosition;
     private Animation mAddCloseAnim, mAddOpenAnim;
-    public static final int OPEN_DOCUMENT_REQUEST = 1;
 
-    private CourseTabFragment getInstance(){
+    private CourseTabFragment getInstance() {
         return this;
     }
 
@@ -83,16 +82,13 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fresh_course_tab);
         mTabList = (RecyclerView) view.findViewById(R.id.list_course_tab);
         initTabList();
-
     }
 
     @Override
     protected void initData() {
         initAnim();
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-//        for (int i = 0; i < 10; ++i) {
-//            mTabAdapter.addItem(i, "ssss");
-//        }
+        mSwipeRefreshLayout.setRefreshing(true);
     }
 
     @Override
@@ -127,7 +123,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
             case 2:
                 mTabAdapter = new CourseNoticeAdapter(context, mTabContents);
                 for (int i = 0; i < 10; ++i) {
-                    mTabAdapter.addItem(i,"111");
+                    mTabAdapter.addItem(i, "111");
                 }
                 break;
             case 3:
@@ -166,7 +162,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
                     case 3:
                         break;
 
-
                     default:
                         break;
                 }
@@ -192,6 +187,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
             case 0:
                 break;
             case 1:
+                startActivity(new Intent(mContext, DataActivity.class));
                 break;
             case 2:
                 startActivity(new Intent(mContext, NoticeActivity.class));
@@ -211,17 +207,19 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
 
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         //
-        if (requestCode == OPEN_DOCUMENT_REQUEST && resultCode == getActivity().RESULT_OK) {
+        if (requestCode == IntentUtils.OPEN_DOCUMENT_REQUEST && resultCode == getActivity().RESULT_OK) {
             Uri uri = data.getData();
             String fileName = FileUtils.getFileName(uri);
             int fileType = FileUtils.getFileType(fileName);
             String size = FileUtils.getFileSize(uri);
-            DocumentFile documentFile = new DocumentFile(fileType, fileName, size,uri.getPath());
+            DocumentFile documentFile = new DocumentFile(fileType, fileName, size);
             mTabAdapter.addItem(mTabContents.size(), documentFile);
         }
+
+        mPublishBtn.startAnimation(mAddCloseAnim);
+
     }
 }
