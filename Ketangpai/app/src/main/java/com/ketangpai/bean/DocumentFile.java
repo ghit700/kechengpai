@@ -23,6 +23,16 @@ public class DocumentFile {
      */
     private String size;
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    private String path;
+
     public DocumentFile(int type, String name, String size) {
         this.type = type;
         this.name = name;

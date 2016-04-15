@@ -159,8 +159,6 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
         }, mYear, mMonth - 1, mDay).show();
     }
 
-
-
     public Calendar getmCalendar() {
         return mCalendar;
     }
@@ -174,6 +172,7 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
             int fileType = FileUtils.getFileType(fileName);
             String size = FileUtils.getFileSize(uri);
             DocumentFile file = new DocumentFile(fileType, fileName, size);
+            file.setPath(uri.getPath());
             for (int i = 0; i < 10; ++i) {
 
                 mDataAdapter.addItem(mDataList.size(), file);
