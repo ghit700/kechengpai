@@ -1,5 +1,6 @@
 package com.ketangpai.fragment;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,7 +11,7 @@ import com.ketangpai.nan.ketangpai.R;
 /**
  * Created by Administrator on 2016/4/15.
  */
-public class DataFragment extends BaseFragment {
+public class DataFragment extends BaseFragment implements View.OnClickListener {
 
     //view
     private ImageView img_data_fileImg;
@@ -40,11 +41,26 @@ public class DataFragment extends BaseFragment {
 
     @Override
     protected void initListener() {
+        btn_data_preview.setOnClickListener(this);
+        btn_data_delete.setOnClickListener(this);
 
     }
 
     @Override
     protected void loadData() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_data_delete:
+                break;
+            case R.id.btn_data_preview:
+                break;
+
+            default:
+                break;
+        }
     }
 }

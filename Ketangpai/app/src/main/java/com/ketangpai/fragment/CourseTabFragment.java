@@ -216,6 +216,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
             int fileType = FileUtils.getFileType(fileName);
             String size = FileUtils.getFileSize(uri);
             DocumentFile documentFile = new DocumentFile(fileType, fileName, size);
+            documentFile.setPath(uri.getPath());
             mTabAdapter.addItem(mTabContents.size(), documentFile);
         }
 
