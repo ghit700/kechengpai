@@ -8,14 +8,14 @@ import android.util.Log;
  * Created by Administrator on 2016/3/30.
  *
  */
-public class LruCacheUtil {
+public class LruCacheUtils {
 
     /* 持有私有静态实例，防止被引用，此处赋值为null，目的是实现延迟加载 */
-    private static LruCacheUtil instance = null;
+    private static LruCacheUtils instance = null;
     private LruCache<String, Bitmap> mMemoryCache;
 
     /* 私有构造方法，防止被实例化 */
-    private LruCacheUtil() {
+    private LruCacheUtils() {
 
         // 获取到可用内存的最大值，使用内存超出这个值会引起OutOfMemory异常。
         // LruCache通过构造函数传入缓存值，以KB为单位。
@@ -33,9 +33,9 @@ public class LruCacheUtil {
     }
 
     /* 1:懒汉式，静态工程方法，创建实例 */
-    public static LruCacheUtil getInstance() {
+    public static LruCacheUtils getInstance() {
         if (instance == null) {
-            instance = new LruCacheUtil();
+            instance = new LruCacheUtils();
         }
         return instance;
     }

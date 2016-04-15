@@ -9,7 +9,7 @@ import com.ketangpai.base.BaseAdapter;
 import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.BitmapUtils;
-import com.ketangpai.utils.LruCacheUtil;
+import com.ketangpai.utils.LruCacheUtils;
 
 import java.util.List;
 
@@ -48,10 +48,10 @@ public class CourseDataAdapter extends BaseAdapter<DocumentFile> {
      */
     private void loadDataBitmap(ImageView mFilePicImg, String path) {
         Bitmap bitmap;
-        bitmap = LruCacheUtil.getInstance().getBitmapFromMemCache(path);
+        bitmap = LruCacheUtils.getInstance().getBitmapFromMemCache(path);
         if (null == bitmap) {
             bitmap = BitmapUtils.getBitmap(path,45,45);
-            LruCacheUtil.getInstance().addBitmapToMemoryCache(path, bitmap);
+            LruCacheUtils.getInstance().addBitmapToMemoryCache(path, bitmap);
         }
         mFilePicImg.setImageBitmap(bitmap);
     }

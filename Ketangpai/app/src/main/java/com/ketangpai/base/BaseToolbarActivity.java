@@ -2,6 +2,7 @@ package com.ketangpai.base;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 
 import com.ketangpai.nan.ketangpai.R;
 
@@ -12,9 +13,6 @@ public abstract class BaseToolbarActivity extends BaseActivity {
 
     //view
     Toolbar mToolbar;
-
-
-
 
     @Override
     protected void initView() {
@@ -32,18 +30,28 @@ public abstract class BaseToolbarActivity extends BaseActivity {
 
     }
 
-
     @Override
     protected void loadData() {
 
     }
 
-    protected abstract  Fragment getLayoutFragment();
+    protected abstract Fragment getLayoutFragment();
 
-    protected  void initToolbar(){
+    protected void initToolbar() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar_main);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-    };
+    }
+
+    ;
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

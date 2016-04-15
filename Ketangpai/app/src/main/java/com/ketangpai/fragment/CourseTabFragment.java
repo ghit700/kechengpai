@@ -1,5 +1,6 @@
 package com.ketangpai.fragment;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +14,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
 
 import com.ketangpai.activity.AddHomeWorkActivity;
+import com.ketangpai.activity.AddNoticekActivity;
+import com.ketangpai.activity.NoticeActivity;
 import com.ketangpai.adapter.CourseDataAdapter;
 import com.ketangpai.adapter.CourseNoticeAdapter;
 import com.ketangpai.adapter.CourseTExamAdapter;
@@ -23,6 +26,7 @@ import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.FileUtils;
+import com.ketangpai.utils.IntentUtils;
 import com.shamanland.fab.ShowHideOnScroll;
 
 import java.util.ArrayList;
@@ -47,6 +51,10 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
     private int mPosition;
     private Animation mAddCloseAnim, mAddOpenAnim;
     public static final int OPEN_DOCUMENT_REQUEST = 1;
+
+    private CourseTabFragment getInstance(){
+        return this;
+    }
 
     @Override
     public void onStop() {
@@ -118,6 +126,9 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
                 break;
             case 2:
                 mTabAdapter = new CourseNoticeAdapter(context, mTabContents);
+                for (int i = 0; i < 10; ++i) {
+                    mTabAdapter.addItem(i,"111");
+                }
                 break;
             case 3:
                 mTabAdapter = new CourseTExamAdapter(context, mTabContents);
@@ -147,14 +158,14 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
                         startActivity(new Intent(mContext, AddHomeWorkActivity.class));
                         break;
                     case 1:
-                        openDocument();
+                        IntentUtils.openDocument(getInstance());
                         break;
                     case 2:
+                        startActivity(new Intent(mContext, AddNoticekActivity.class));
                         break;
                     case 3:
                         break;
-                    case 4:
-                        break;
+
 
                     default:
                         break;
@@ -183,6 +194,7 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
             case 1:
                 break;
             case 2:
+                startActivity(new Intent(mContext, NoticeActivity.class));
                 break;
             case 3:
                 break;
@@ -199,17 +211,6 @@ public class CourseTabFragment extends BaseFragment implements SwipeRefreshLayou
 
     }
 
-    /**
-     * 读取设备媒体和文档
-     */
-    private void openDocument() {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        //仅返回可以打开流的文件
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/video/audio/*");
-        startActivityForResult(intent, OPEN_DOCUMENT_REQUEST);
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -15,9 +15,9 @@ import java.util.List;
 /**
  * Created by nan on 2016/3/27.
  */
-public class AddHomeWorkDataAdapter extends BaseAdapter<DocumentFile> {
+public class DataAdapter extends BaseAdapter<DocumentFile> {
 
-    public AddHomeWorkDataAdapter(Context mContext, List mDataList) {
+    public DataAdapter(Context mContext, List mDataList) {
         super(mContext, mDataList);
     }
 

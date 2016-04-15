@@ -8,15 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.ketangpai.adapter.AddHomeWorkDataAdapter;
+import com.ketangpai.adapter.DataAdapter;
 import com.ketangpai.base.BaseFragment;
 import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.nan.ketangpai.R;
@@ -27,8 +24,6 @@ import com.ketangpai.view.FullyLinearLayoutManager;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 /**
  * Created by nan on 2016/3/27.
@@ -43,7 +38,7 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
     RecyclerView listAddHomeworkData;
 
     //adapter
-    AddHomeWorkDataAdapter mAddHomeWorkDataAdapter;
+    DataAdapter mDataAdapter;
 
     //变量
     List mDataList;
@@ -123,11 +118,10 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
      */
     private void initDataList() {
         listAddHomeworkData = (RecyclerView) view.findViewById(R.id.list_add_homework_data);
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
         listAddHomeworkData.setLayoutManager(new FullyLinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         mDataList = new ArrayList();
-        mAddHomeWorkDataAdapter = new AddHomeWorkDataAdapter(mContext, mDataList);
-        listAddHomeworkData.setAdapter(mAddHomeWorkDataAdapter);
+        mDataAdapter = new DataAdapter(mContext, mDataList);
+        listAddHomeworkData.setAdapter(mDataAdapter);
 
     }
 
@@ -164,14 +158,7 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
         }, mYear, mMonth - 1, mDay).show();
     }
 
-    public void openDocument() {
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        //仅返回可以打开流的文件
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/video/audio/*");
-        startActivityForResult(intent, CourseTabFragment.OPEN_DOCUMENT_REQUEST);
-    }
+
 
     public Calendar getmCalendar() {
         return mCalendar;
@@ -188,7 +175,7 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
             DocumentFile file = new DocumentFile(fileType, fileName, size);
             for (int i = 0; i < 10; ++i) {
 
-                mAddHomeWorkDataAdapter.addItem(mDataList.size(), file);
+                mDataAdapter.addItem(mDataList.size(), file);
             }
 
         }

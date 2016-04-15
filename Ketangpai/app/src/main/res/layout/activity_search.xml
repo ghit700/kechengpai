@@ -7,15 +7,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:background="@color/colorPrimary"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <LinearLayout
-            android:elevation="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/tv_t_homework_add_backgroud"
+            android:elevation="5dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             >
@@ -24,21 +24,21 @@
                 android:id="@+id/img_search_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:paddingLeft="10dp"
+                android:paddingTop="5dp"
                 android:src="@drawable/abc_ic_ab_back_material"/>
 
             <EditText
                 android:id="@+id/et_search_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
                 android:background="@android:color/white"
-                android:hint="搜索班级,作业,测试或学生"
+                android:hint="搜索班级,作业,测试"
                 android:padding="10dp"
                 android:textSize="14sp"/>
         </LinearLayout>

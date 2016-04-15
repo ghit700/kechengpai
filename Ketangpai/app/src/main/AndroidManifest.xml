@@ -30,5 +30,8 @@
         <activity android:name="com.ketangpai.activity.NotificationActivity"></activity>
         <activity android:name="com.ketangpai.activity.AccountActivity"></activity>
         <activity android:name="com.ketangpai.activity.AddHomeWorkActivity"></activity>
+        <activity android:name="com.ketangpai.activity.AddDataActivity"></activity>
+        <activity android:name="com.ketangpai.activity.AddNoticekActivity"></activity>
+        <activity android:name="com.ketangpai.activity.NoticeActivity"></activity>
     </application>
 </manifest>

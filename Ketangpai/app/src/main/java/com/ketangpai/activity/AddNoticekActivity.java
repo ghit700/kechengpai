@@ -1,25 +1,21 @@
 package com.ketangpai.activity;
 
-import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.ketangpai.base.BaseActivity;
 import com.ketangpai.base.BaseToolbarActivity;
 import com.ketangpai.fragment.AddHomeWorkFragment;
+import com.ketangpai.fragment.AddNoticeFragment;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.IntentUtils;
-
-import java.util.Calendar;
 
 /**
  * Created by nan on 2016/3/27.
  */
-public class AddHomeWorkActivity extends BaseToolbarActivity {
+public class AddNoticekActivity extends BaseToolbarActivity {
 
-    private AddHomeWorkFragment mFragment;
+    private AddNoticeFragment mFragment;
 
     @Override
     protected int getContentViewId() {
@@ -28,7 +24,7 @@ public class AddHomeWorkActivity extends BaseToolbarActivity {
 
     @Override
     protected Fragment getLayoutFragment() {
-        mFragment = new AddHomeWorkFragment();
+        mFragment = new AddNoticeFragment();
         return mFragment;
     }
 
@@ -60,7 +56,7 @@ public class AddHomeWorkActivity extends BaseToolbarActivity {
                 finish();
                 break;
             case R.id.send:
-                mFragment.sendHomeWork();
+                mFragment.sendNotice();
                 break;
             case R.id.data:
                 IntentUtils.openDocument(mFragment);
@@ -81,6 +77,6 @@ public class AddHomeWorkActivity extends BaseToolbarActivity {
     @Override
     protected void initToolbar() {
         super.initToolbar();
-        getSupportActionBar().setTitle("新作业");
+        getSupportActionBar().setTitle("新公告");
     }
 }
