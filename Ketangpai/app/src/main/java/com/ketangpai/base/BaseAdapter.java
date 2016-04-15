@@ -8,6 +8,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
@@ -33,7 +34,6 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
 
     OnItemClickListener onItemClickListener;
 
-
     public OnItemClickListener getOnItemClickListener() {
         return onItemClickListener;
     }
@@ -42,12 +42,22 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
         this.onItemClickListener = onItemClickListener;
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        if (position == getItemCount()) {
+            return -1;
+        }
+        return super.getItemViewType(position);
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mLayoutInflater.inflate(getItemLayoutId(viewType), parent, false);
+        View view;
+
+        view = mLayoutInflater.inflate(getItemLayoutId(viewType), parent, false);
         typedValue = new TypedValue();
         mContext.getTheme().resolveAttribute(R.attr.selectableItemBackground, typedValue, true);
+
         return new ViewHolder(view);
     }
 
@@ -57,14 +67,12 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
 
     @Override
     public void onBindViewHolder(BaseAdapter.ViewHolder holder, int position) {
-        bindData(holder, position, mDataList.get(position));
+        if (position != getItemCount()) {
+            bindData(holder, position, mDataList.get(position));
+        }
     }
 
     protected abstract void bindData(ViewHolder holder, int position, E item);
-
-
-    ;
-
 
     @Override
     public int getItemCount() {

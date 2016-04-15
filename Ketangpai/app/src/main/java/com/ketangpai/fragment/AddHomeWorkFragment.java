@@ -22,6 +22,7 @@ import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.FileUtils;
 import com.ketangpai.utils.TimeUtils;
+import com.ketangpai.view.FullyLinearLayoutManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -122,8 +123,8 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
      */
     private void initDataList() {
         listAddHomeworkData = (RecyclerView) view.findViewById(R.id.list_add_homework_data);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
-        listAddHomeworkData.setLayoutManager(linearLayoutManager);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+        listAddHomeworkData.setLayoutManager(new FullyLinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         mDataList = new ArrayList();
         mAddHomeWorkDataAdapter = new AddHomeWorkDataAdapter(mContext, mDataList);
         listAddHomeworkData.setAdapter(mAddHomeWorkDataAdapter);
@@ -190,45 +191,7 @@ public class AddHomeWorkFragment extends BaseFragment implements View.OnClickLis
                 mAddHomeWorkDataAdapter.addItem(mDataList.size(), file);
             }
 
-            //需要延迟,不然会获得不了界面
-            listAddHomeworkData.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    setListViewHeightBasedOnChildren(listAddHomeworkData);
-                }
-            }, 200);
-
         }
-    }
-
-    /**
-     * 设置recyclerview的高度
-     *
-     * @param recyclerView
-     */
-    public void setListViewHeightBasedOnChildren(RecyclerView recyclerView) {
-        // 获取ListView对应的Adapter
-        RecyclerView.Adapter listAdapter = recyclerView.getAdapter();
-        if (listAdapter == null) {
-            return;
-        }
-
-        int totalHeight = 0;
-        View listItem = recyclerView.getChildAt(0);
-        for (int i = 0, len = listAdapter.getItemCount(); i < len; i++) {
-            // listAdapter.getCount()返回数据项的数目
-
-            // 计算子项View 的宽高
-            listItem.measure(0, 0);
-            // 统计所有子项的总高度
-            totalHeight += listItem.getMeasuredHeight();
-        }
-
-        ViewGroup.LayoutParams params = recyclerView.getLayoutParams();
-        params.height = totalHeight;
-        // listView.getDividerHeight()获取子项间分隔符占用的高度
-        // params.height最后得到整个ListView完整显示需要的高度
-        recyclerView.setLayoutParams(params);
     }
 
     /**
