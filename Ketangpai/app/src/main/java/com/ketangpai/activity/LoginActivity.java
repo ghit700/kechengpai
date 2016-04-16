@@ -183,7 +183,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
             Teacher teacher = new Teacher(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 0);
             dialog.dismiss();
         } else {
-            Student student = new Student(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_name.getText().toString(), Long.parseLong(et_register_sid.getText().toString()), et_register_school.getText().toString(), 1);
+            Student student = new Student(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_name.getText().toString(), Integer.parseInt(et_register_sid.getText().toString()), et_register_school.getText().toString(), 1);
             dialog.dismiss();
         }
 

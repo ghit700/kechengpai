@@ -4,17 +4,18 @@ package com.ketangpai.bean;
  * Created by Administrator on 2016/4/15.
  */
 public class Student {
+    private int s_id;
     private String account;
     private String password;
     private String name;
-    private long SId;
+    private int number;
     private String School;
 
-    public Student(String account, String password, String name, long SId, String school, int type) {
+    public Student(String account, String password, String name, int number, String school, int type) {
         this.account = account;
         this.password = password;
         this.name = name;
-        this.SId = SId;
+        this.number = number;
         School = school;
         this.type = type;
     }
@@ -24,10 +25,14 @@ public class Student {
      */
     private int type;
 
-    public void setSId(long SId) {
-        this.SId = SId;
+
+    public int getNumber() {
+        return number;
     }
 
+    public void setNumber(int number) {
+        this.number = number;
+    }
     public void setSchool(String school) {
         School = school;
     }
@@ -48,9 +53,7 @@ public class Student {
         return name;
     }
 
-    public long getSId() {
-        return SId;
-    }
+
 
     public String getSchool() {
         return School;

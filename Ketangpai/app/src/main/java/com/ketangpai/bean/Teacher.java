@@ -4,6 +4,7 @@ package com.ketangpai.bean;
  * Created by Administrator on 2016/4/15.
  */
 public class Teacher {
+    private int t_id;
     private String account;
     private String password;
     private String school;

@@ -9,7 +9,7 @@ import com.ketangpai.base.BaseAdapter;
 import com.ketangpai.bean.DocumentFile;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.BitmapUtils;
-import com.ketangpai.utils.LruCacheUtils;
+import com.ketangpai.utils.ImageLoaderUtils;
 
 import java.util.List;
 
@@ -36,24 +36,12 @@ public class CourseDataAdapter extends BaseAdapter<DocumentFile> {
         holder.itemView.setBackgroundResource(typedValue.resourceId);
         mFileNameText.setText(item.getName());
         mFileSize.setText(item.getSize() + "MB");
-        loadDataBitmap(mFilePicImg, item.getPath());
+
+        ImageLoaderUtils.display(mContext,mFilePicImg,item.getPath());
+
 
     }
 
-    /**
-     * 加载图片
-     *
-     * @param mFilePicImg
-     * @param path
-     */
-    private void loadDataBitmap(ImageView mFilePicImg, String path) {
-        Bitmap bitmap;
-        bitmap = LruCacheUtils.getInstance().getBitmapFromMemCache(path);
-        if (null == bitmap) {
-            bitmap = BitmapUtils.getBitmap(path,45,45);
-            LruCacheUtils.getInstance().addBitmapToMemoryCache(path, bitmap);
-        }
-        mFilePicImg.setImageBitmap(bitmap);
-    }
+
 
 }
