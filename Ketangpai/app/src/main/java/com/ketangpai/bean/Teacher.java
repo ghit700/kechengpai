@@ -3,21 +3,13 @@ package com.ketangpai.bean;
 /**
  * Created by Administrator on 2016/4/15.
  */
-public class Teacher {
+public class Teacher extends User {
     private int t_id;
-    private String account;
-    private String password;
-    private String school;
-    private String name;
-    private int type;
 
     public Teacher(String account, String password, String school, String name, int type) {
-        this.account = account;
-        this.password = password;
-        this.school = school;
-        this.name = name;
-        this.type = type;
+        super(account, password, school, name, type);
     }
+
 
     public void setPassword(String password) {
         this.password = password;

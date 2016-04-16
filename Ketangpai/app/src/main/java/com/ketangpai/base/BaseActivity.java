@@ -16,6 +16,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected Context mContext;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +64,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
+
     }
 
     protected void showToast(String text, int duration) {
@@ -74,4 +76,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
+
+
 }

@@ -3,27 +3,21 @@ package com.ketangpai.bean;
 /**
  * Created by Administrator on 2016/4/15.
  */
-public class Student {
+public class Student extends User {
     private int s_id;
-    private String account;
-    private String password;
-    private String name;
-    private int number;
-    private String School;
 
-    public Student(String account, String password, String name, int number, String school, int type) {
-        this.account = account;
-        this.password = password;
-        this.name = name;
-        this.number = number;
-        School = school;
-        this.type = type;
-    }
+    private int number;
+
 
     /**
      * 类型,0为老师,1为学生
      */
-    private int type;
+
+
+    public Student(String account, String password, String school, String name, int type, int number) {
+        super(account, password, school, name, type);
+        this.number = number;
+    }
 
 
     public int getNumber() {
@@ -33,9 +27,7 @@ public class Student {
     public void setNumber(int number) {
         this.number = number;
     }
-    public void setSchool(String school) {
-        School = school;
-    }
+
 
     public void setPassword(String password) {
         this.password = password;
@@ -51,12 +43,6 @@ public class Student {
 
     public String getName() {
         return name;
-    }
-
-
-
-    public String getSchool() {
-        return School;
     }
 
     public int getType() {
