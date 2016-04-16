@@ -117,14 +117,14 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
         new AlertDialog.Builder(mContext).setTitle("注册").setNeutralButton("学生", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                type=1;
+                type = 1;
                 showRegisterDialog(1);
             }
 
         }).setPositiveButton("老师", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                type=0;
+                type = 0;
                 showRegisterDialog(0);
             }
         }).create().show();
@@ -245,12 +245,12 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
         if (ret == 0) {
             new AlertDialog.Builder(mContext).setTitle("注册失败")
                     .setMessage("已存在相同的用户名,请重新输入")
-                    .setPositiveButton("确认", null);
+                    .setPositiveButton("确认", null).show();
         } else {
             RegisterDialog.dismiss();
             new AlertDialog.Builder(mContext).setTitle("注册成功")
                     .setMessage("恭喜您,注册成功课程派")
-                    .setPositiveButton("确认", null);
+                    .setPositiveButton("确认", null).show();
 
         }
     }
