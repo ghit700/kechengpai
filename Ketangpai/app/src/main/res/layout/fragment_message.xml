@@ -4,9 +4,8 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <ExpandableListView
-        android:childDivider="@android:color/transparent"
-        android:id="@+id/exlist_messagme"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_messagme"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ExpandableListView>
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 </LinearLayout>

@@ -67,9 +67,9 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
 
     @Override
     public void onBindViewHolder(BaseAdapter.ViewHolder holder, int position) {
-        if (position != getItemCount()) {
-            bindData(holder, position, mDataList.get(position));
-        }
+
+        bindData(holder, position, mDataList.get(position));
+
     }
 
     protected abstract void bindData(ViewHolder holder, int position, E item);

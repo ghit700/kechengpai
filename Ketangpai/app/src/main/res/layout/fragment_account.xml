@@ -9,7 +9,7 @@
         android:id="@+id/ll_account_userIcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        android:background="@drawable/backgroud_accout_item"
         android:padding="5dp">
 
         <TextView
@@ -43,7 +43,7 @@
             android:id="@+id/ll_account_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@drawable/backgroud_accout_item"
             android:padding="15dp">
 
             <TextView
@@ -107,7 +107,7 @@
             android:id="@+id/ll_account_school"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@drawable/backgroud_accout_item" 
             android:padding="15dp">
 
             <TextView

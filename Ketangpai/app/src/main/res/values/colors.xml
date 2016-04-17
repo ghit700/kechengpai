@@ -12,6 +12,8 @@
 
     <color name="colorPrimaryLight">#d3e5f5</color>
 
+    <color name="white">#ffffff</color>
+    <color name="divider">#dddddd</color>
 
 
 </resources>

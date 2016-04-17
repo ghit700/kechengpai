@@ -23,10 +23,9 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
     //fragment管理器
     private FragmentManager mFragmentManager;
     private MainCourseFragment mCouresFragment;
-    private ContactsFragment mMessageFragment;
+    private MessageFragment mMessageFragment;
     //当前页面显示的fragment
     private Fragment mCurrentFragment;
-
 
 
     @Override
@@ -59,7 +58,7 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
 
     private void initFragment() {
         mCouresFragment = new MainCourseFragment();
-        mMessageFragment = new ContactsFragment();
+        mMessageFragment = new MessageFragment();
         mCurrentFragment = mCouresFragment;
         mFragmentManager = ((AppCompatActivity) mContext).getSupportFragmentManager();
         mFragmentManager.beginTransaction().add(R.id.fragment_main_mainContainer, mCouresFragment).commit();

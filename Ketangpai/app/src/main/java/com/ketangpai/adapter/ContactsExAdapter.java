@@ -20,13 +20,13 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by nan on 2016/3/18.
  */
-public class MessageExAdapter extends BaseExpandableListAdapter {
+public class ContactsExAdapter extends BaseExpandableListAdapter {
 
     Context mContext;
     ArrayList<String> mMessageGroups;
     ArrayList<ArrayList<String>> mMessagmeGroupUsers;
 
-    public MessageExAdapter(Context mContext, ArrayList<String> mMessageGroups, ArrayList<ArrayList<String>> mMessagmeGroupUsers) {
+    public ContactsExAdapter(Context mContext, ArrayList<String> mMessageGroups, ArrayList<ArrayList<String>> mMessagmeGroupUsers) {
         this.mContext = mContext;
         this.mMessageGroups = mMessageGroups;
         this.mMessagmeGroupUsers = mMessagmeGroupUsers;

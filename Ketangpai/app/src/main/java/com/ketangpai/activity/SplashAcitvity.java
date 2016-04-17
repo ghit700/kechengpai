@@ -25,9 +25,10 @@ public class SplashAcitvity extends AppCompatActivity {
         String password = getSharedPreferences("user", 0).getString("password", "");
         if (null != account && null != password) {
             startActivity(new Intent(this, MainActivity.class));
+        }else{
+            startActivity(new Intent(this, LoginActivity.class));
         }
 
-        startActivity(new Intent(this, LoginActivity.class));
         finish();
 
     }

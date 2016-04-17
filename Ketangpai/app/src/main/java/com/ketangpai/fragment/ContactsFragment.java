@@ -1,14 +1,11 @@
 package com.ketangpai.fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
 import com.ketangpai.activity.ChatActivity;
-import com.ketangpai.adapter.MessageExAdapter;
+import com.ketangpai.adapter.ContactsExAdapter;
 import com.ketangpai.base.BaseFragment;
 import com.ketangpai.nan.ketangpai.R;
 
@@ -23,7 +20,7 @@ public class ContactsFragment extends BaseFragment implements ExpandableListView
     ExpandableListView mMessageExList;
 
     //adpter
-    MessageExAdapter mMessageExAdapter;
+    ContactsExAdapter mContactsExAdapter;
 
     //变量
     ArrayList<String> mGroupNames;
@@ -59,8 +56,8 @@ public class ContactsFragment extends BaseFragment implements ExpandableListView
     private void initMessageExList() {
         mGroupNames = new ArrayList<>();
         mGroupItemUsers = new ArrayList<>();
-        mMessageExAdapter = new MessageExAdapter(mContext, mGroupNames, mGroupItemUsers);
-        mMessageExList.setAdapter(mMessageExAdapter);
+        mContactsExAdapter = new ContactsExAdapter(mContext, mGroupNames, mGroupItemUsers);
+        mMessageExList.setAdapter(mContactsExAdapter);
 
     }
 
