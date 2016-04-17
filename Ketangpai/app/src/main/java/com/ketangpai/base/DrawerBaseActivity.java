@@ -34,6 +34,7 @@ import android.widget.TextView;
 
 import com.ketangpai.activity.AccountActivity;
 import com.ketangpai.activity.CourseActivity;
+import com.ketangpai.activity.LoginActivity;
 import com.ketangpai.activity.MainActivity;
 import com.ketangpai.activity.SearchActivity;
 import com.ketangpai.adapter.NevigationCourseAdapter;
@@ -136,7 +137,6 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
     }
 
 
-
     @Override
     public void onItemClick(View view, int position) {
         startCourseActivity(mCourses.get(position), position);
@@ -227,16 +227,20 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
         }).setNegativeButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(mContext, LoginActivity.class));
+                finish();
             }
         }).create().show();
     }
 
     ;
 
-    protected  void startAccountActivity(){
-        Intent intent =new Intent(mContext, AccountActivity.class);
+    protected void startAccountActivity() {
+        Intent intent = new Intent(mContext, AccountActivity.class);
         startActivity(intent);
-    };
+    }
+
+    ;
 
 
 }

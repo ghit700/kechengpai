@@ -58,9 +58,10 @@ public abstract class BasePresenterActivity<V, T extends BasePresenter<V>> exten
 
     public void showLoadingDialog() {
         mLoadingDialog = new AlertDialog.Builder(mContext).show();
-        View view = getLayoutInflater().inflate(R.layout.dialog_loading, null);
+        View view = getLayoutInflater().inflate(R.layout.dialog_loading,null);
         tv_loading = (TextView) view.findViewById(R.id.tv_loading);
         mLoadingDialog.setContentView(view);
+        mLoadingDialog.setCanceledOnTouchOutside(false);
     }
 
     /**

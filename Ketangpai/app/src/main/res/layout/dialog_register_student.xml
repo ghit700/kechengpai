@@ -32,6 +32,7 @@
 
         <EditText
             android:id="@+id/et_register_password"
+            android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -70,7 +71,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/et_registerchool"
+            android:id="@+id/et_register_school"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

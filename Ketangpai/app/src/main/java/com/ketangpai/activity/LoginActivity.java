@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +31,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class LoginActivity extends BasePresenterActivity<LoginViewInterface, LoginPresenter> implements View.OnClickListener, LoginViewInterface {
 
-    public static final String TAG = "LOGIN";
+    public static final String TAG = "===LOGIN";
 
 
     //    view
@@ -197,6 +198,7 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
                     Teacher teacher = new Teacher(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 0);
                     mPresenter.register(teacher, type);
                 } else {
+                    Log.i("wu", et_register_sid.getText().toString());
                     Student student = new Student(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 1, Integer.parseInt(et_register_sid.getText().toString()));
                     mPresenter.register(student, type);
                 }
@@ -213,24 +215,33 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
     @Override
     public void login(int ret) {
         if (ret > 0) {
+            Log.i(TAG, "login ret=" + ret);
+
             startActivity(new Intent(mContext, MainActivity.class));
             finish();
+        } else {
+            new AlertDialog.Builder(mContext).setTitle("登录失败")
+                    .setMessage("用户名或密码错误,请重新输入")
+                    .setPositiveButton("确认", null).show();
         }
     }
 
     @Override
     public void showLoginLoading() {
+        mimm.hideSoftInputFromInputMethod(null, 0);
         showLoadingDialog();
         setLoadingText("登录中...");
     }
 
     @Override
     public void hideLoginLoading() {
+
         dismissLoadingDialog();
     }
 
     @Override
     public void showRegisterLoading() {
+        mimm.hideSoftInputFromInputMethod(null, 0);
         showLoadingDialog();
         setLoadingText("注册中...");
     }
@@ -242,6 +253,8 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
 
     @Override
     public void register(int ret) {
+        Log.i(TAG, "register ret=" + ret);
+
         if (ret == 0) {
             new AlertDialog.Builder(mContext).setTitle("注册失败")
                     .setMessage("已存在相同的用户名,请重新输入")
@@ -250,7 +263,12 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
             RegisterDialog.dismiss();
             new AlertDialog.Builder(mContext).setTitle("注册成功")
                     .setMessage("恭喜您,注册成功课程派")
-                    .setPositiveButton("确认", null).show();
+                    .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(mContext, MainActivity.class));
+                        }
+                    }).show();
 
         }
     }
