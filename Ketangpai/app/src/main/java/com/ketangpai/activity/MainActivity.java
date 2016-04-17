@@ -2,39 +2,24 @@ package com.ketangpai.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
-import android.widget.TextView;
 
-import com.ketangpai.adapter.NotificationAdapter;
 import com.ketangpai.base.DrawerBaseActivity;
 import com.ketangpai.fragment.MainFragment;
 import com.ketangpai.listener.OnItemClickListener;
-import com.ketangpai.fragment.MainCourseFragment;
-import com.ketangpai.fragment.MessageFragment;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.ActivityCollector;
-
-import java.util.ArrayList;
 
 
 /**
@@ -57,6 +42,11 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
+    protected int getContentViewId() {
+        return R.layout.activity_base_nevigation;
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         ActivityCollector.finishAllActivity();
         super.onCreate(savedInstanceState, persistentState);
@@ -75,15 +65,9 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     }
 
     @Override
-    protected int getContentViewId() {
-        return R.layout.activity_base_nevigation;
-    }
-
-    @Override
     protected void initVariables() {
         super.initVariables();
         mMainFragment = new MainFragment();
-
     }
 
     @Override
@@ -112,6 +96,7 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
     protected void loadData() {
 
     }
+
 
     @Override
     public void onClick(View v) {
@@ -153,13 +138,11 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
 
         switch (item.getItemId()) {
             case R.id.search:
-
                 startActivity(new Intent(mContext, SearchActivity.class));
 
                 break;
 
             case R.id.notify:
-//                showPopupWindow(mToolbar);
                 startActivity(new Intent(mContext, NotificationActivity.class));
                 break;
         }
@@ -195,7 +178,6 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
 
     @Override
     protected Fragment getLayoutFragment() {
-
         return mMainFragment;
     }
 
@@ -258,45 +240,6 @@ public class MainActivity extends DrawerBaseActivity implements View.OnClickList
         getMenuInflater().inflate(R.menu.base_toolbar_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-//    private void showPopupWindow(Toolbar mToolbar) {
-//        View view = LayoutInflater.from(mContext).inflate(R.layout.popupwindow_notification, null, false);
-//
-//        //初始化itemview
-//        TextView history = (TextView) view.findViewById(R.id.tv_notification_history);
-//        TextView ignore = (TextView) view.findViewById(R.id.tv_notification_ignore);
-//        RecyclerView notificationList = (RecyclerView) view.findViewById(R.id.list_notification);
-//
-//        //设置事件
-//        history.setOnClickListener(this);
-//        ignore.setOnClickListener(this);
-//
-//        //初始化view的值
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
-//        notificationList.setLayoutManager(linearLayoutManager);
-//        mNotificationContents = new ArrayList();
-//        notificationList.setAdapter(new NotificationAdapter(mContext, mNotificationContents));
-//
-//        for (int i = 0; i < 10; ++i) {
-//            mNotificationContents.add("11111");
-//        }
-//
-//        final PopupWindow popupWindow = new PopupWindow(view, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, true);
-//
-//        popupWindow.setTouchable(true);
-//        popupWindow.setTouchInterceptor(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                return false;
-//            }
-//        });
-//
-//        popupWindow.setBackgroundDrawable(new ColorDrawable(0x00000000));
-//
-//        popupWindow.showAsDropDown(mToolbar, 100, 0);
-//
-//
-//    }
 
 
 }

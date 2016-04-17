@@ -22,7 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ketangpai.activity.LoginActivity"
+        <activity
+            android:name="com.ketangpai.activity.LoginActivity"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity android:name="com.ketangpai.activity.MainActivity"></activity>
         <activity android:name="com.ketangpai.activity.SearchActivity"></activity>
@@ -35,5 +36,6 @@
         <activity android:name="com.ketangpai.activity.AddNoticekActivity"></activity>
         <activity android:name="com.ketangpai.activity.NoticeActivity"></activity>
         <activity android:name="com.ketangpai.activity.DataActivity"></activity>
+        <activity android:name="com.ketangpai.activity.ContactsActivity"></activity>
     </application>
 </manifest>

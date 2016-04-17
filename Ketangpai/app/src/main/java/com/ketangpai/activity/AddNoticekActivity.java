@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.ketangpai.base.BasePresenter;
 import com.ketangpai.base.BaseToolbarActivity;
 import com.ketangpai.fragment.AddHomeWorkFragment;
 import com.ketangpai.fragment.AddNoticeFragment;
@@ -48,6 +49,8 @@ public class AddNoticekActivity extends BaseToolbarActivity {
     protected void loadData() {
         super.loadData();
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

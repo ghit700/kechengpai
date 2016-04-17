@@ -7,6 +7,16 @@ public class User {
     protected String name;
     protected int type;
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    private int number;
+
     public String getAccount() {
         return account;
     }
@@ -47,12 +57,17 @@ public class User {
         this.type = type;
     }
 
+    public User(){
 
-    public User(String account, String password, String school, String name, int type) {
+    }
+
+
+    public User(String account, String password, String school, String name, int type, int number) {
         this.account = account;
         this.password = password;
         this.school = school;
         this.name = name;
         this.type = type;
+        this.number = number;
     }
 }

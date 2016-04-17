@@ -4,7 +4,9 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -14,11 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.ketangpai.base.BaseActivity;
-import com.ketangpai.base.BasePresenter;
 import com.ketangpai.base.BasePresenterActivity;
-import com.ketangpai.bean.Student;
-import com.ketangpai.bean.Teacher;
+import com.ketangpai.bean.User;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.presenter.LoginPresenter;
 import com.ketangpai.utils.ActivityCollector;
@@ -47,6 +46,7 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
     private long exitTime;
     private int type = 0;
     private AlertDialog RegisterDialog;
+    private User mUser;
 
     @Override
     protected int getContentViewId() {
@@ -84,6 +84,7 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
 
     }
 
+
     @Override
     protected LoginPresenter createPresenter() {
         return new LoginPresenter();
@@ -97,7 +98,7 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
         switch (v.getId()) {
             case R.id.btn_login_login:
                 mimm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                mPresenter.login(mName.getText().toString(), mPassword.getText().toString(), type);
+                mPresenter.login(mName.getText().toString(), mPassword.getText().toString());
                 break;
             case R.id.et_login_name:
                 mimm.showSoftInput(null, InputMethodManager.SHOW_FORCED);
@@ -192,16 +193,15 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //注册
                 if (type == 0) {
                     //老师
-                    Teacher teacher = new Teacher(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 0);
-                    mPresenter.register(teacher, type);
+                    mUser = new User(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 0, 0);
                 } else {
-                    Log.i("wu", et_register_sid.getText().toString());
-                    Student student = new Student(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 1, Integer.parseInt(et_register_sid.getText().toString()));
-                    mPresenter.register(student, type);
+                    mUser = new User(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 1, Integer.parseInt(et_register_sid.getText().toString()));
                 }
+                mPresenter.register(mUser);
 
 
             }
@@ -213,12 +213,13 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
     }
 
     @Override
-    public void login(int ret) {
-        if (ret > 0) {
+    public void login(User user, int ret) {
+        if (ret >= 0) {
             Log.i(TAG, "login ret=" + ret);
+            mUser = user;
+            type = mUser.getType();
+            saveUserMessage();
 
-            startActivity(new Intent(mContext, MainActivity.class));
-            finish();
         } else {
             new AlertDialog.Builder(mContext).setTitle("登录失败")
                     .setMessage("用户名或密码错误,请重新输入")
@@ -252,24 +253,41 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
     }
 
     @Override
-    public void register(int ret) {
-        Log.i(TAG, "register ret=" + ret);
+    public void register(int type) {
+        Log.i(TAG, "register type=" + type);
 
-        if (ret == 0) {
+        if (type == -1) {
             new AlertDialog.Builder(mContext).setTitle("注册失败")
                     .setMessage("已存在相同的用户名,请重新输入")
                     .setPositiveButton("确认", null).show();
-        } else {
+        } else if (type >= 0) {
             RegisterDialog.dismiss();
             new AlertDialog.Builder(mContext).setTitle("注册成功")
                     .setMessage("恭喜您,注册成功课程派")
                     .setPositiveButton("确认", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(mContext, MainActivity.class));
+                            saveUserMessage();
                         }
                     }).show();
 
         }
+    }
+
+    /**
+     * 保存用户信息
+     */
+    private void saveUserMessage() {
+        SharedPreferences sp = getSharedPreferences("user", 0);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("type", type);
+        editor.putString("account", mUser.getAccount());
+        editor.putString("password", mUser.getPassword());
+        editor.putString("school", mUser.getSchool());
+        editor.putInt("number", mUser.getNumber());
+        editor.putString("name", mUser.getName());
+        editor.commit();
+        startActivity(new Intent(mContext, MainActivity.class));
+        finish();
     }
 }

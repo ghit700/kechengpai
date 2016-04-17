@@ -54,6 +54,7 @@
                 android:textColor="@android:color/black"/>
 
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -87,6 +88,7 @@
                 android:textColor="@android:color/black"/>
 
             <TextView
+                android:id="@+id/tv_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -116,6 +118,7 @@
                 android:textColor="@android:color/black"/>
 
             <TextView
+                android:id="@+id/tv_school"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"

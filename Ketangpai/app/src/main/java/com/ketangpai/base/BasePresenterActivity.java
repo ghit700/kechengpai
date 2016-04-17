@@ -25,7 +25,9 @@ public abstract class BasePresenterActivity<V, T extends BasePresenter<V>> exten
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mPresenter = createPresenter();
-        mPresenter.attachView((V) this);
+        if (mPresenter != null) {
+            mPresenter.attachView((V) this);
+        }
     }
 
     @Override
@@ -51,14 +53,16 @@ public abstract class BasePresenterActivity<V, T extends BasePresenter<V>> exten
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresenter.detachView();
+        if (mPresenter != null) {
+            mPresenter.detachView();
+        }
     }
 
     protected abstract T createPresenter();
 
     public void showLoadingDialog() {
         mLoadingDialog = new AlertDialog.Builder(mContext).show();
-        View view = getLayoutInflater().inflate(R.layout.dialog_loading,null);
+        View view = getLayoutInflater().inflate(R.layout.dialog_loading, null);
         tv_loading = (TextView) view.findViewById(R.id.tv_loading);
         mLoadingDialog.setContentView(view);
         mLoadingDialog.setCanceledOnTouchOutside(false);

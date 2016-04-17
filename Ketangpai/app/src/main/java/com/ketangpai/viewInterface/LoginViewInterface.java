@@ -1,5 +1,7 @@
 package com.ketangpai.viewInterface;
 
+import com.ketangpai.bean.User;
+
 /**
  * Created by nan on 2016/4/16.
  */
@@ -7,9 +9,9 @@ public interface LoginViewInterface {
     /**
      * 登录
      *
-     * @param ret ret>=1 登录成功,否则登录失败
+     * @param
      */
-    public void login(int ret);
+    public void login(User user, int ret);
 
     public void showLoginLoading();
 
@@ -20,7 +22,7 @@ public interface LoginViewInterface {
     public void hideRegisterLoading();
 
     /**
-     * @param ret ret>=1 注册成功 =0 已存在账号 -1注册失败
+     * @param
      */
-    public void register(int ret);
+    public void register(int type);
 }

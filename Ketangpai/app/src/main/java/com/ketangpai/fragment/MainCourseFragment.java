@@ -54,7 +54,7 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     //判断addBtn是否open
     private boolean isBtnOpen = true;
     //判断是老师还是学生
-    private String role = "学生";
+    private int type;
 
     @Override
     protected int getLayoutId() {
@@ -62,8 +62,14 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     }
 
     @Override
+    protected void initVarious() {
+        super.initVarious();
+        type = mContext.getSharedPreferences("user", 0).getInt("type", -1);
+    }
+
+    @Override
     protected void initView() {
-        mSwipeRefreshLayout= (SwipeRefreshLayout) view.findViewById(R.id.fresh_main_course);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fresh_main_course);
         mAddBtn = (FloatingActionButton) view.findViewById(R.id.btn_main_add);
         ininMainCourseList(view);
     }
@@ -72,8 +78,8 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     protected void initData() {
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
         initAddBtnAnim();
-        for (int i = 0; i <10; ++i) {
-            mMainCourseAdapter.addItem(0,"11--"+i);
+        for (int i = 0; i < 10; ++i) {
+            mMainCourseAdapter.addItem(0, "11--" + i);
         }
     }
 
@@ -82,7 +88,7 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     protected void initListener() {
         mAddBtn.setOnClickListener(this);
         mMainCourseList.setOnTouchListener(new ShowHideOnScroll(mAddBtn));
-         mMainCourseAdapter.setOnItemClickListener(this);
+        mMainCourseAdapter.setOnItemClickListener(this);
     }
 
     @Override
@@ -115,7 +121,7 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     public void onItemClick(View view, int position) {
         Intent intent = new Intent(mContext, CourseActivity.class);
         intent.putExtra("course", ((TextView) view.findViewById(R.id.tv_item_courseName)).getText().toString() + position);
-        intent.putExtra("position",position);
+        intent.putExtra("position", position);
         startActivity(intent);
     }
 
@@ -133,7 +139,7 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
         btnCreate.setOnClickListener(this);
         mAddDialog.setOnDismissListener(this);
 
-        if (role.equals("老师")) {
+        if (type == 0) {
             dialogTitle.setText("新建班级");
             dialogCourse.setHint("请输入新建班级名称");
             btnCreate.setText("创建");
@@ -151,7 +157,7 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
         mMainCourseList = (RecyclerView) view.findViewById(R.id.list_main_course);
         mMainCourseList.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         mCourses = new ArrayList<>();
-        if (role.equals("老师")) {
+        if (type == 0) {
             mMainCourseAdapter = new CourseTMainCourseAdapter(mContext, mCourses);
         } else {
             mMainCourseAdapter = new CourseSMainCourseAdapter(mContext, mCourses);

@@ -2,6 +2,7 @@ package com.ketangpai.activity;
 
 import android.support.v4.app.Fragment;
 
+import com.ketangpai.base.BasePresenter;
 import com.ketangpai.base.BaseToolbarActivity;
 import com.ketangpai.nan.ketangpai.R;
 
@@ -39,6 +40,8 @@ public class AddDataActivity extends BaseToolbarActivity {
     protected void loadData() {
         super.loadData();
     }
+
+
 
     @Override
     protected void initToolbar() {

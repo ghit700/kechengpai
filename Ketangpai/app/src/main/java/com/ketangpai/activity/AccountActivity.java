@@ -2,15 +2,16 @@ package com.ketangpai.activity;
 
 import android.support.v4.app.Fragment;
 
-import com.ketangpai.base.BasePresenter;
 import com.ketangpai.base.DrawerBaseActivity;
-import com.ketangpai.fragment.TAccountFragment;
+import com.ketangpai.fragment.AccountFragment;
 import com.ketangpai.nan.ketangpai.R;
 
 /**
  * Created by nan on 2016/3/21.
  */
 public class AccountActivity extends DrawerBaseActivity {
+
+
     @Override
     protected int getContentViewId() {
         return R.layout.activity_base_nevigation;
@@ -18,7 +19,7 @@ public class AccountActivity extends DrawerBaseActivity {
 
     @Override
     protected Fragment getLayoutFragment() {
-        return new TAccountFragment();
+        return new AccountFragment();
     }
 
     @Override
@@ -40,7 +41,6 @@ public class AccountActivity extends DrawerBaseActivity {
     protected void loadData() {
 
     }
-
 
 
     @Override

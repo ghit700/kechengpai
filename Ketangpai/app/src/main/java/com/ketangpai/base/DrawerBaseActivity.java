@@ -69,6 +69,7 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
     //变量
     //courselist
     protected List<String> mCourses;
+    protected String name;
 
     //主界面打开的类型
     public final static int COURSE = 1;
@@ -81,6 +82,12 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
     protected void onStop() {
         super.onStop();
         mDrawerContainer.closeDrawer(Gravity.LEFT);
+    }
+
+    @Override
+    protected void initVariables() {
+        super.initVariables();
+        name = getSharedPreferences("user", 0).getString("name", "");
     }
 
     @Override
@@ -178,6 +185,9 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
         mUserNameText = (TextView) findViewById(R.id.tv_main_userName);
         mDrawerCourseText = (TextView) findViewById(R.id.tv_main_drawerCourse);
         mDrawerMessageText = (TextView) findViewById(R.id.tv_main_drawerMessage);
+
+        mUserNameText.setText(name);
+
     }
 
 
@@ -227,6 +237,7 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
         }).setNegativeButton("确认", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                getSharedPreferences("user", 0).edit().clear().commit();
                 startActivity(new Intent(mContext, LoginActivity.class));
                 finish();
             }
@@ -236,6 +247,7 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
     ;
 
     protected void startAccountActivity() {
+
         Intent intent = new Intent(mContext, AccountActivity.class);
         startActivity(intent);
     }

@@ -1,19 +1,20 @@
 package com.ketangpai.activity;
 
 import android.support.v4.app.Fragment;
+import android.view.MenuItem;
 
 import com.ketangpai.base.BasePresenter;
 import com.ketangpai.base.BaseToolbarActivity;
-import com.ketangpai.fragment.DataFragment;
+import com.ketangpai.fragment.ContactsFragment;
 import com.ketangpai.nan.ketangpai.R;
 
 /**
- * Created by Administrator on 2016/4/15.
+ * Created by nan on 2016/4/17.
  */
-public class DataActivity extends BaseToolbarActivity {
+public class ContactsActivity extends BaseToolbarActivity {
     @Override
     protected Fragment getLayoutFragment() {
-        return new DataFragment();
+        return new ContactsFragment();
     }
 
     @Override
@@ -42,10 +43,13 @@ public class DataActivity extends BaseToolbarActivity {
     }
 
 
-
     @Override
     protected void initToolbar() {
         super.initToolbar();
-        getSupportActionBar().setTitle("一分一秒");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }

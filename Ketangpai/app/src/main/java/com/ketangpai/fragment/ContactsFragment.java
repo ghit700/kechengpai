@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Created by nan on 2016/3/15.
  */
-public class MessageFragment extends BaseFragment implements ExpandableListView.OnChildClickListener {
+public class ContactsFragment extends BaseFragment implements ExpandableListView.OnChildClickListener {
 
     //view
     ExpandableListView mMessageExList;
@@ -32,7 +32,7 @@ public class MessageFragment extends BaseFragment implements ExpandableListView.
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_message;
+        return R.layout.fragment_contacts;
     }
 
     @Override

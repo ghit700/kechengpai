@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.ketangpai.base.BasePresenter;
 import com.ketangpai.base.DrawerBaseActivity;
 import com.ketangpai.fragment.CourseFragment;
 import com.ketangpai.nan.ketangpai.R;
@@ -65,6 +66,7 @@ public class CourseActivity extends DrawerBaseActivity {
     protected void loadData() {
 
     }
+
 
     @Override
     public void onClick(View v) {

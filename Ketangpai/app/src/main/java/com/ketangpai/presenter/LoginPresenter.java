@@ -2,6 +2,7 @@ package com.ketangpai.presenter;
 
 import android.util.Log;
 
+import com.alibaba.fastjson.JSON;
 import com.ketangpai.activity.LoginActivity;
 import com.ketangpai.base.BasePresenter;
 import com.ketangpai.bean.User;
@@ -23,20 +24,26 @@ public class LoginPresenter extends BasePresenter<LoginViewInterface> {
         userModel = new UserModelImpl();
     }
 
-    public void login(String account, String password, int type) {
+    public void login(String account, String password) {
         if (isViewAttached()) {
             loginViewInterface = getView();
         } else {
-            Log.i(LoginActivity.TAG,"没有连接view");
+            Log.i(LoginActivity.TAG, "没有连接view");
             return;
         }
 
         loginViewInterface.showLoginLoading();
 
-        userModel.login(account, password, type, new VolleyUtils.ResultCallback() {
+        userModel.login(account, password, new VolleyUtils.ResultCallback() {
             @Override
             public void onSuccess(String result) {
-                loginViewInterface.login(Integer.valueOf(result));
+                if (result.equals("-1")) {
+                    loginViewInterface.login(null, -1);
+                } else {
+                    Log.i(LoginActivity.TAG, result);
+                    User user = JSON.parseObject(result, User.class);
+                    loginViewInterface.login(user, user.getType());
+                }
                 loginViewInterface.hideLoginLoading();
             }
 
@@ -47,17 +54,17 @@ public class LoginPresenter extends BasePresenter<LoginViewInterface> {
         });
     }
 
-    public void register(User user, int type) {
+    public void register(User user) {
         if (isViewAttached()) {
             loginViewInterface = getView();
         } else {
-            Log.i(LoginActivity.TAG,"没有连接view");
+            Log.i(LoginActivity.TAG, "没有连接view");
             return;
         }
 
         loginViewInterface.showRegisterLoading();
 
-        userModel.register(user, type, new VolleyUtils.ResultCallback() {
+        userModel.register(user, new VolleyUtils.ResultCallback() {
             @Override
             public void onSuccess(String result) {
                 loginViewInterface.register(Integer.valueOf(result));

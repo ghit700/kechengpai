@@ -27,6 +27,7 @@ public abstract class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        initVarious();
         view = inflater.inflate(getLayoutId(), container, false);
         initView();
         initData();
@@ -34,6 +35,12 @@ public abstract class BaseFragment extends Fragment {
         loadData();
         return view;
     }
+
+    protected void initVarious() {
+
+    }
+
+    ;
 
     protected abstract int getLayoutId();
 
@@ -45,9 +52,11 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract void loadData();
 
-    public void changeTabAdaterByPosition(int position){
+    public void changeTabAdaterByPosition(int position) {
 
-    };
+    }
+
+    ;
 
 
 }
