@@ -12,11 +12,11 @@ import com.ketangpai.viewInterface.AccountViewInterface;
 /**
  * Created by Administrator on 2016/4/18.
  */
-public class UpdateUserInfoPresenter extends BasePresenter<AccountViewInterface> {
+public class AccountPresenter extends BasePresenter<AccountViewInterface> {
     UserModel userModel;
     AccountViewInterface accountViewInterface;
 
-    public UpdateUserInfoPresenter() {
+    public AccountPresenter() {
         userModel = new UserModelImpl();
     }
 
@@ -30,7 +30,7 @@ public class UpdateUserInfoPresenter extends BasePresenter<AccountViewInterface>
         userModel.updateUserInfo(account, columnName, columnValue, new VolleyUtils.ResultCallback() {
             @Override
             public void onSuccess(String result) {
-                accountViewInterface.updateUserInfo(result);
+                accountViewInterface.updateUserInfoOnComplete(result);
             }
 
             @Override

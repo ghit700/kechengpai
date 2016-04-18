@@ -8,6 +8,6 @@ public interface AccountViewInterface {
     /**
      * @param columnName!=-1 修改成功
      */
-    public void updateUserInfo(String columnName);
+    public void updateUserInfoOnComplete(String columnName);
 
 }

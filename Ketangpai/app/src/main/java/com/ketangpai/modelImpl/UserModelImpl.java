@@ -1,5 +1,7 @@
 package com.ketangpai.modelImpl;
 
+import android.util.Log;
+
 import com.ketangpai.activity.LoginActivity;
 import com.ketangpai.bean.User;
 import com.ketangpai.constant.Urls;
@@ -44,8 +46,7 @@ public class UserModelImpl implements UserModel {
         Map<String, String> params = new HashMap<>();
         params.put("account", account);
         params.put("columnName", columnName);
-        params.put("columnValue", columnValue);
-
+        params.put("colunmValue", columnValue);
         String url = Urls.SERVER_HOST + Urls.UPDATE_USER_INFO;
         VolleyUtils.post(url, AccountFragment.TAG, params, resultCallback);
     }

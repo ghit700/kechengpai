@@ -11,5 +11,5 @@ public interface UserModel {
 
     public void register(User user, VolleyUtils.ResultCallback resultCallback);
 
-    public void updateUserInfo(String account, String columnName, String columnValue,VolleyUtils.ResultCallback resultCallback);
+    public void updateUserInfo(String account, String columnName, String columnValue, VolleyUtils.ResultCallback resultCallback);
 }
