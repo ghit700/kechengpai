@@ -23,6 +23,7 @@
             android:textSize="18sp"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_account_user"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
@@ -63,20 +64,20 @@
                 />
         </RelativeLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:background="@color/colorNormalText"/>
 
         <RelativeLayout
             android:id="@+id/ll_account_sid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@drawable/backgroud_accout_item"
             android:paddingLeft="15dp"
             android:paddingRight="15dp">
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginRight="-15dp"
-                android:background="@color/colorNormalText"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,7 +108,7 @@
             android:id="@+id/ll_account_school"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/backgroud_accout_item" 
+            android:background="@drawable/backgroud_accout_item"
             android:padding="15dp">
 
             <TextView
@@ -137,7 +138,7 @@
             android:id="@+id/ll_account_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@drawable/backgroud_accout_item"
             android:padding="15dp">
 
             <TextView

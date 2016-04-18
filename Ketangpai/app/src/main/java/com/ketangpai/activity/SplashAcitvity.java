@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -23,9 +24,10 @@ public class SplashAcitvity extends AppCompatActivity {
 
         String account = getSharedPreferences("user", 0).getString("account", "");
         String password = getSharedPreferences("user", 0).getString("password", "");
-        if (null != account && null != password) {
+        if (!account.equals("") && !password.equals("")) {
+            Log.i(LoginActivity.TAG, "account=" + account + "  password=" + password);
             startActivity(new Intent(this, MainActivity.class));
-        }else{
+        } else {
             startActivity(new Intent(this, LoginActivity.class));
         }
 

@@ -14,6 +14,7 @@ import com.ketangpai.fragment.CourseTabFragment;
 public class IntentUtils {
 
     public static final int OPEN_DOCUMENT_REQUEST = 1;
+    public static final int OPEN_IMGAE = 2;
 
     /**
      * 读取设备文档和视频,返回文件的Uri
@@ -26,6 +27,20 @@ public class IntentUtils {
         //仅返回可以打开流的文件
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/video/audio/*");
+        fragment.startActivityForResult(intent, OPEN_DOCUMENT_REQUEST);
+    }
+
+    /**
+     * 打开图片文件
+     *
+     * @param fragment
+     */
+    public static void openImageFile(BaseFragment fragment) {
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        //仅返回可以打开流的文件
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
         fragment.startActivityForResult(intent, OPEN_DOCUMENT_REQUEST);
     }
 }

@@ -1,11 +1,19 @@
 package com.ketangpai.fragment;
 
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.ImageLoader;
 import com.ketangpai.base.BaseFragment;
 import com.ketangpai.nan.ketangpai.R;
+import com.ketangpai.utils.ImageLoaderUtils;
+import com.ketangpai.utils.IntentUtils;
 
 /**
  * Created by nan on 2016/3/21.
@@ -14,6 +22,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
     RelativeLayout mUserIcon, mName, mShool, mNumber, mPassword;
     TextView tv_account, tv_school, tv_name, tv_number;
+    ImageView img_account_user;
     //变量
     private int type;
     private String school;
@@ -21,7 +30,6 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     private String name;
     private String account;
     private String password;
-
 
     @Override
     protected void initVarious() {
@@ -33,7 +41,6 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         type = mContext.getSharedPreferences("user", 0).getInt("type", -1);
         number = mContext.getSharedPreferences("user", 0).getInt("number", -1);
     }
-
 
     @Override
     protected int getLayoutId() {
@@ -51,6 +58,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         tv_school = (TextView) view.findViewById(R.id.tv_school);
         tv_name = (TextView) view.findViewById(R.id.tv_name);
         tv_number = (TextView) view.findViewById(R.id.tv_number);
+        img_account_user = (ImageView) view.findViewById(R.id.img_account_user);
 
         if (type == 0) {
             mNumber.setVisibility(view.GONE);
@@ -64,7 +72,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         tv_name.setText(name);
 
         if (type == 1) {
-            tv_account.setText(number);
+            tv_number.setText(String.valueOf(number));
         }
     }
 
@@ -90,14 +98,33 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
             case R.id.ll_account_school:
                 break;
             case R.id.ll_account_userIcon:
+                IntentUtils.openImageFile(this);
                 break;
             case R.id.ll_account_sid:
                 break;
             case R.id.ll_account_password:
+                showUpdatePasswordDialog();
                 break;
 
             default:
                 break;
         }
+    }
+
+    private void showUpdatePasswordDialog() {
+        AlertDialog dialog = new AlertDialog.Builder(mContext).create();
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
+        View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_account_update_password, null);
+
+        dialog.setContentView(view);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == IntentUtils.OPEN_IMGAE && resultCode == getActivity().RESULT_OK) {
+            ImageLoaderUtils.display(mContext, img_account_user, data.getData().getPath());
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
