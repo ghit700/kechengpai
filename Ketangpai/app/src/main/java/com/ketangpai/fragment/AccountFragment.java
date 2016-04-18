@@ -1,6 +1,7 @@
 package com.ketangpai.fragment;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -41,6 +42,7 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
     private String account;
     private String password;
     private InputMethodManager mImm;
+    private String columnName, columnNameCode;
 
     @Override
     protected void initVarious() {
@@ -111,14 +113,16 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_account_name:
-
+                showUpdateDialog(0);
                 break;
             case R.id.ll_account_school:
+                showUpdateDialog(1);
                 break;
             case R.id.ll_account_userIcon:
                 IntentUtils.openImageFile(this);
                 break;
             case R.id.ll_account_sid:
+                showUpdateDialog(2);
                 break;
             case R.id.ll_account_password:
                 showUpdatePasswordDialog();
@@ -129,13 +133,109 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
         }
     }
 
+    /**
+     * 显示更改对话框 0 name 1 school 2 sid
+     *
+     * @param type
+     */
+    private void showUpdateDialog(final int type) {
+        final Dialog dialog = new AlertDialog.Builder(mContext).create();
+        dialog.show();
+
+        View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_account_update, null);
+
+        TextView tv_dialog_title = (TextView) view.findViewById(R.id.tv_dialog_title);
+        TextView tv_dialog_content = (TextView) view.findViewById(R.id.tv_dialog_content);
+        final EditText et_dialog_content_new = (EditText) view.findViewById(R.id.et_dialog_content_new);
+        Button btn_dialog_password_save = (Button) view.findViewById(R.id.btn_dialog_password_save);
+        Button btn_dialog_password_cancel = (Button) view.findViewById(R.id.btn_dialog_password_cancel);
+
+        btn_dialog_password_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btn_dialog_password_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!et_dialog_content_new.equals("")) {
+                    showUpdateOnCompleteDialog(columnName, 3);
+                } else {
+                    String columnName = et_dialog_content_new.getText().toString();
+                    mPresenter.updateUserInfo(account, columnNameCode, columnName);
+                    switch (type) {
+                        case 0:
+                            tv_name.setText(columnName);
+                            mContext.getSharedPreferences("user", 0).edit().putString("name", columnName).commit();
+                            break;
+                        case 1:
+                            tv_school.setText(columnName);
+                            mContext.getSharedPreferences("user", 0).edit().putString("scholl", columnName).commit();
+
+                            break;
+                        case 2:
+                            tv_number.setText(columnName);
+                            mContext.getSharedPreferences("user", 0).edit().putString("number", columnName).commit();
+
+                            break;
+
+                        default:
+                            break;
+                    }
+                    dialog.dismiss();
+                    showUpdateOnCompleteDialog(columnName, 0);
+                }
+            }
+
+        });
+
+
+        switch (type) {
+            case 0:
+                columnNameCode = "name";
+                columnName = "名字";
+                tv_dialog_title.setText("名字设置");
+                tv_dialog_content.setText("名字");
+                et_dialog_content_new.setHint("请输入新名字");
+                et_dialog_content_new.setText(name);
+
+                break;
+            case 1:
+                columnNameCode = "school";
+                columnName = "学校";
+
+                tv_dialog_title.setText("学校设置");
+                tv_dialog_content.setText("学校");
+                et_dialog_content_new.setHint("请输入新学校");
+                et_dialog_content_new.setText(school);
+                break;
+            case 2:
+                columnNameCode = "number";
+                columnName = "学号";
+                tv_dialog_title.setText("学号设置");
+                tv_dialog_content.setText("学号");
+                et_dialog_content_new.setHint("请输入新学号");
+                et_dialog_content_new.setText(number);
+
+                break;
+
+            default:
+                break;
+        }
+
+        dialog.setContentView(view);
+
+    }
+
     private void showUpdatePasswordDialog() {
         final AlertDialog dialog = new AlertDialog.Builder(mContext).create();
-        dialog.setCanceledOnTouchOutside(false);
+//        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_account_update_password, null);
 
-        mImm.showSoftInput(view,InputMethodManager.SHOW_FORCED);
+        mImm.showSoftInput(view, InputMethodManager.SHOW_FORCED);
 
         final EditText et_dialog_password_confirm = (EditText) view.findViewById(R.id.et_dialog_password_confirm);
         final EditText et_dialog_password_new = (EditText) view.findViewById(R.id.et_dialog_password_new);
@@ -169,29 +269,28 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
         if (!passPwd.equals("") && !newPwd.equals("") && !confirmPwd.equals("")) {
             if (passPwd.equals(password)) {
                 if (!newPwd.equals(confirmPwd)) {
-                    showUpdateDialog("密码", 2);
+                    showUpdateOnCompleteDialog("密码", 2);
                 } else {
-
                     mPresenter.updateUserInfo(account, "password", newPwd);
                     mContext.getSharedPreferences("user", 0).edit().putString("password", newPwd).commit();
                     dialog.dismiss();
-                    showUpdateDialog("密码", 3);
+                    showUpdateOnCompleteDialog("密码", 3);
                 }
             } else {
-                showUpdateDialog("密码", 1);
+                showUpdateOnCompleteDialog("密码", 1);
             }
         } else {
-            showUpdateDialog("密码", 0);
+            showUpdateOnCompleteDialog("密码", 0);
         }
     }
 
     /**
-     * 显示修改失败对话框
+     * 显示修改完成对话框
      *
      * @param colunmnName 修改哪一项
-     * @param type        失败的原因
+     * @param type
      */
-    private void showUpdateDialog(String colunmnName, int type) {
+    private void showUpdateOnCompleteDialog(String colunmnName, int type) {
         StringBuffer title = new StringBuffer();
         StringBuffer message = new StringBuffer();
         title = title.append(colunmnName);
