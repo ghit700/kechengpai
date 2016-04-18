@@ -30,8 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class LoginActivity extends BasePresenterActivity<LoginViewInterface, LoginPresenter> implements View.OnClickListener, LoginViewInterface {
 
-    public static final String TAG = "===LOGIN";
-
+    public static final String TAG = "===loginactivity";
 
     //    view
     private EditText mName, mPassword;
@@ -84,12 +83,10 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
 
     }
 
-
     @Override
     protected LoginPresenter createPresenter() {
         return new LoginPresenter();
     }
-
 
     //初始化nameEdittext和passwordEdittext
 
@@ -189,20 +186,25 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
             }
         });
 
-
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!et_register_account.getText().toString().equals("") &&
+                        !et_register_password.getText().toString().equals("") &&
+                        !et_register_school.getText().toString().equals("") &&
+                        !et_register_name.getText().toString().equals("")) {
 
-                //注册
-                if (type == 0) {
-                    //老师
-                    mUser = new User(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 0, 0);
+                    //注册
+                    if (type == 0) {
+                        //老师
+                        mUser = new User(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 0, 0);
+                    } else {
+                        mUser = new User(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 1, Integer.parseInt(et_register_sid.getText().toString()));
+                    }
+                    mPresenter.register(mUser);
                 } else {
-                    mUser = new User(et_register_account.getText().toString(), et_register_password.getText().toString(), et_register_school.getText().toString(), et_register_name.getText().toString(), 1, Integer.parseInt(et_register_sid.getText().toString()));
+                    showRegisterFailDialog();
                 }
-                mPresenter.register(mUser);
-
 
             }
         });
@@ -210,6 +212,11 @@ public class LoginActivity extends BasePresenterActivity<LoginViewInterface, Log
         RegisterDialog.setView(view);
         RegisterDialog.show();
 
+    }
+
+    private void showRegisterFailDialog() {
+        new AlertDialog.Builder(mContext).setTitle("注册失败").setMessage("不能为空,请填写")
+                .setPositiveButton("确认", null).setNegativeButton("取消", null).create().show();
     }
 
     @Override

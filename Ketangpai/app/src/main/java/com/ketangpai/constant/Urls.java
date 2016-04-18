@@ -6,7 +6,8 @@ package com.ketangpai.constant;
 public class Urls {
 
     public static final String SERVER_HOST = "http://192.168.3.183:8080/kechengpai";
-    public static  final  String LOGIN="/login";
-    public static  final  String REGISTER="/register";
+    public static final String LOGIN = "/login";
+    public static final String REGISTER = "/register";
+    public static final String UPDATE_USER_INFO = "/updateUserInfo";
 
 }

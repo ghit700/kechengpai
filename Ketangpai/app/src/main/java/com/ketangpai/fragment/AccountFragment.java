@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -14,11 +16,14 @@ import com.ketangpai.base.BaseFragment;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.utils.ImageLoaderUtils;
 import com.ketangpai.utils.IntentUtils;
+import com.ketangpai.viewInterface.AccountViewInterface;
 
 /**
  * Created by nan on 2016/3/21.
  */
-public class AccountFragment extends BaseFragment implements View.OnClickListener {
+public class AccountFragment extends BaseFragment implements View.OnClickListener, AccountViewInterface {
+
+    public static final String TAG = "===accountfragment";
 
     RelativeLayout mUserIcon, mName, mShool, mNumber, mPassword;
     TextView tv_account, tv_school, tv_name, tv_number;
@@ -117,14 +122,44 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         dialog.show();
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_account_update_password, null);
 
+        EditText et_dialog_password_confirm = (EditText) view.findViewById(R.id.et_dialog_password_confirm);
+        EditText et_dialog_password_new = (EditText) view.findViewById(R.id.et_dialog_password_new);
+        EditText et_dialog_password_pass = (EditText) view.findViewById(R.id.et_dialog_password_pass);
+        Button btn_dialog_password_save = (Button) view.findViewById(R.id.btn_dialog_password_save);
+        Button btn_dialog_password_cancel = (Button) view.findViewById(R.id.btn_dialog_password_cancel);
+
+
+
         dialog.setContentView(view);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == IntentUtils.OPEN_IMGAE && resultCode == getActivity().RESULT_OK) {
+
             ImageLoaderUtils.display(mContext, img_account_user, data.getData().getPath());
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void updateUserInfo(String columnName) {
+        if (columnName.equals("-1")) {
+            new AlertDialog.Builder(mContext).setTitle("修改失败").setPositiveButton("确认", null).create().show();
+        } else {
+            switch (columnName) {
+                case "password":
+                    break;
+                case "school":
+                    break;
+                case "number":
+                    break;
+                case "name":
+                    break;
+
+                default:
+                    break;
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ package com.ketangpai.modelImpl;
 import com.ketangpai.activity.LoginActivity;
 import com.ketangpai.bean.User;
 import com.ketangpai.constant.Urls;
+import com.ketangpai.fragment.AccountFragment;
 import com.ketangpai.model.UserModel;
 import com.ketangpai.utils.VolleyUtils;
 
@@ -13,7 +14,6 @@ import java.util.Map;
  * Created by nan on 2016/4/16.
  */
 public class UserModelImpl implements UserModel {
-
 
     @Override
     public void login(String account, String password, VolleyUtils.ResultCallback resultCallback) {
@@ -39,5 +39,15 @@ public class UserModelImpl implements UserModel {
         VolleyUtils.post(url, LoginActivity.TAG, params, resultCallback);
     }
 
-  
+    @Override
+    public void updateUserInfo(String account, String columnName, String columnValue, VolleyUtils.ResultCallback resultCallback) {
+        Map<String, String> params = new HashMap<>();
+        params.put("account", account);
+        params.put("columnName", columnName);
+        params.put("columnValue", columnValue);
+
+        String url = Urls.SERVER_HOST + Urls.UPDATE_USER_INFO;
+        VolleyUtils.post(url, AccountFragment.TAG, params, resultCallback);
+    }
+
 }
