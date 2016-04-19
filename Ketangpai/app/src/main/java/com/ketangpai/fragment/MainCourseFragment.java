@@ -33,6 +33,7 @@ import java.util.List;
  */
 public class MainCourseFragment extends BaseFragment implements View.OnClickListener, OnItemClickListener, DialogInterface.OnDismissListener, SwipeRefreshLayout.OnRefreshListener {
 
+    public static final String TAG = "===MainCourseFragment";
     //view
     private FloatingActionButton mAddBtn;
     private RecyclerView mMainCourseList;
@@ -78,7 +79,7 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
 
     @Override
     protected void initData() {
-        
+
     }
 
     @Override

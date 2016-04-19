@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -62,6 +63,7 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     protected void initData() {
         mImm = (InputMethodManager) mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+
         for (int i = 0; i < 10; ++i) {
             if (i % 2 == 0) {
                 mChatRecondList.add(0);
@@ -69,13 +71,14 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener, 
                 mChatRecondList.add(1);
             }
         }
+        mChatList.scrollToPosition(9);
     }
 
     @Override
     protected void initListener() {
         mSendTextEt.setOnClickListener(this);
-        mChatList.setOnClickListener(this);
         mSendTextEt.addTextChangedListener(this);
+
     }
 
     @Override
@@ -100,8 +103,8 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener, 
                 mImm.showSoftInput(v, InputMethodManager.SHOW_FORCED);
                 break;
             case R.id.list_chat:
-                mImm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 break;
+
             default:
                 break;
         }
