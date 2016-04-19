@@ -93,9 +93,14 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
         notifyItemRemoved(positon);
     }
 
+    public void clearData() {
+        mDataList.clear();
+    }
+
     ;
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener ,View
+            .OnLongClickListener{
 
         private SparseArray<View> mViews;
 
@@ -114,11 +119,17 @@ public abstract class BaseAdapter<E> extends RecyclerView.Adapter<BaseAdapter.Vi
             return view;
         }
 
+
         @Override
         public void onClick(View v) {
             if (getOnItemClickListener() != null) {
                 getOnItemClickListener().onItemClick(v, getPosition());
             }
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            return false;
         }
     }
 }

@@ -72,8 +72,6 @@ public class MainCourseFragment extends BasePresenterFragment<MainCourseViewInte
         return R.layout.fragment_main_course;
     }
 
-  
-
 
     @Override
     protected void initVarious() {
@@ -127,13 +125,7 @@ public class MainCourseFragment extends BasePresenterFragment<MainCourseViewInte
                 changeAddBtnAnim();
                 showAddDialog();
                 break;
-            case R.id.btn_addDialog_cancel:
-                mAddDialog.dismiss();
-                break;
-            case R.id.btn_addDialog_create:
-                createCourse();
-                mAddDialog.dismiss();
-                break;
+
 
             default:
                 break;
@@ -142,7 +134,11 @@ public class MainCourseFragment extends BasePresenterFragment<MainCourseViewInte
     }
 
     private void createCourse() {
+        if (type == 0) {
 
+        } else {
+
+        }
     }
 
     @Override
@@ -177,8 +173,20 @@ public class MainCourseFragment extends BasePresenterFragment<MainCourseViewInte
             btnCreate.setText("加入");
         }
 
-        btnCancel.setOnClickListener(this);
-        btnCreate.setOnClickListener(this);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAddDialog.dismiss();
+            }
+        });
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createCourse();
+
+            }
+        });
+
 
         mAddDialog.setView(view);
         mAddDialog.show();
@@ -187,6 +195,7 @@ public class MainCourseFragment extends BasePresenterFragment<MainCourseViewInte
     private void ininMainCourseList(View view) {
         mMainCourseList = (RecyclerView) view.findViewById(R.id.list_main_course);
         mMainCourseList.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+        mCourses = new ArrayList<>();
         if (type == 0) {
             mMainCourseAdapter = new CourseTMainCourseAdapter(mContext, mCourses);
         } else {
@@ -221,13 +230,16 @@ public class MainCourseFragment extends BasePresenterFragment<MainCourseViewInte
 
     @Override
     public void onRefresh() {
+        mMainCourseAdapter.clearData();
+        mNevigationCourseAdapter.clearData();
         mPresenter.getCourseList(account, type);
     }
 
     @Override
     public void getCourseListOnComplete(List<Course> courses) {
         if (null != courses) {
-            int start = mCourses.size();
+            int start = 0;
+            start = mCourses.size();
             mCourses.addAll(courses);
             Log.i(TAG, "getCourseListOnComplete===start=" + start + "  end=" + mCourses.size());
             mMainCourseAdapter.notifyItemRangeChanged(start, mCourses.size());
