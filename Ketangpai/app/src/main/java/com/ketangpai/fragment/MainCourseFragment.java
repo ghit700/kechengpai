@@ -1,11 +1,15 @@
 package com.ketangpai.fragment;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,13 +19,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.ketangpai.activity.CourseActivity;
+import com.ketangpai.activity.MainActivity;
 import com.ketangpai.adapter.CourseSMainCourseAdapter;
 import com.ketangpai.adapter.CourseTMainCourseAdapter;
+import com.ketangpai.adapter.NevigationCourseAdapter;
 import com.ketangpai.base.BaseAdapter;
 import com.ketangpai.base.BaseFragment;
+import com.ketangpai.base.BasePresenter;
+import com.ketangpai.base.BasePresenterFragment;
 import com.ketangpai.bean.Course;
 import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
+import com.ketangpai.presenter.MainCoursePresenter;
+import com.ketangpai.viewInterface.MainCourseViewInterface;
 import com.shamanland.fab.FloatingActionButton;
 import com.shamanland.fab.ShowHideOnScroll;
 
@@ -31,7 +41,7 @@ import java.util.List;
 /**
  * Created by nan on 2016/3/15.
  */
-public class MainCourseFragment extends BaseFragment implements View.OnClickListener, OnItemClickListener, DialogInterface.OnDismissListener, SwipeRefreshLayout.OnRefreshListener {
+public class MainCourseFragment extends BasePresenterFragment<MainCourseViewInterface, MainCoursePresenter> implements MainCourseViewInterface, View.OnClickListener, OnItemClickListener, DialogInterface.OnDismissListener, SwipeRefreshLayout.OnRefreshListener {
 
     public static final String TAG = "===MainCourseFragment";
     //view
@@ -54,17 +64,24 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     private boolean isBtnOpen = true;
     //判断是老师还是学生
     private int type;
+    private String account;
+    private NevigationCourseAdapter mNevigationCourseAdapter;
 
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_main_course;
     }
 
+  
+
+
     @Override
     protected void initVarious() {
         super.initVarious();
         type = mContext.getSharedPreferences("user", 0).getInt("type", -1);
+        account = mContext.getSharedPreferences("user", 0).getString("account", "");
         initAddBtnAnim();
+        mNevigationCourseAdapter = ((MainActivity) getActivity()).getNevigationCourseAdapter();
 
     }
 
@@ -170,7 +187,6 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     private void ininMainCourseList(View view) {
         mMainCourseList = (RecyclerView) view.findViewById(R.id.list_main_course);
         mMainCourseList.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
-        mCourses = new ArrayList<>();
         if (type == 0) {
             mMainCourseAdapter = new CourseTMainCourseAdapter(mContext, mCourses);
         } else {
@@ -205,7 +221,26 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
 
     @Override
     public void onRefresh() {
-
+        mPresenter.getCourseList(account, type);
     }
 
+    @Override
+    public void getCourseListOnComplete(List<Course> courses) {
+        if (null != courses) {
+            int start = mCourses.size();
+            mCourses.addAll(courses);
+            Log.i(TAG, "getCourseListOnComplete===start=" + start + "  end=" + mCourses.size());
+            mMainCourseAdapter.notifyItemRangeChanged(start, mCourses.size());
+            for (int i = start; i < mCourses.size(); ++i) {
+                mNevigationCourseAdapter.addItem(i, mCourses.get(i).getName());
+            }
+
+            mSwipeRefreshLayout.setRefreshing(false);
+        }
+    }
+
+    @Override
+    protected MainCoursePresenter createPresenter() {
+        return new MainCoursePresenter();
+    }
 }

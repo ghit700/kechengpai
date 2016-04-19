@@ -32,8 +32,13 @@ public class MainCoursePresenter extends BasePresenter<MainCourseViewInterface> 
             courseModel.queryCourseList(account, type, new VolleyUtils.ResultCallback() {
                 @Override
                 public void onSuccess(String result) {
-                    List<Course> list = new ArrayList<Course>(JSONArray.parseArray(result, Course.class));
-                    mainCourseViewInterface.getCourseListOnComplete(list);
+                    Log.i(MainCourseFragment.TAG, "getCourseList  " + result);
+                    if (!result.equals("-1")) {
+                        List<Course> list = new ArrayList<Course>(JSONArray.parseArray(result, Course.class));
+                        mainCourseViewInterface.getCourseListOnComplete(list);
+                    } else {
+                        mainCourseViewInterface.getCourseListOnComplete(null);
+                    }
                 }
 
                 @Override

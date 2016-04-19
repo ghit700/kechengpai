@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ketangpai.base.BaseAdapter;
+import com.ketangpai.bean.Course;
 import com.ketangpai.nan.ketangpai.R;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 public class NevigationCourseAdapter extends BaseAdapter<String> {
 
     //选中的position
-    private int selectPosition=-1;
+    private int selectPosition = -1;
 
 
     public NevigationCourseAdapter(Context mContext, List<String> mDataList) {
@@ -36,14 +37,14 @@ public class NevigationCourseAdapter extends BaseAdapter<String> {
         TextView courseName = (TextView) holder.getViewById(R.id.tv_item_drawerCourseName);
 
 
-
         //初始化view的值
-        if(position==getSelectPosition()){
+        if (position == getSelectPosition()) {
             holder.itemView.setBackgroundColor(mContext.getResources().getColor(R.color.colorPrimaryLight));
-        }else{
+        } else {
             holder.itemView.setBackgroundColor(mContext.getResources().getColor(android.R.color.white));
-
         }
+
+        courseName.setText(s);
     }
 
 

@@ -39,6 +39,7 @@ import com.ketangpai.activity.MainActivity;
 import com.ketangpai.activity.SearchActivity;
 import com.ketangpai.adapter.NevigationCourseAdapter;
 import com.ketangpai.adapter.NotificationAdapter;
+import com.ketangpai.bean.Course;
 import com.ketangpai.fragment.CourseFragment;
 import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
@@ -68,7 +69,7 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
 
     //变量
     //courselist
-    protected List<String> mCourses;
+    protected List<String> mNevigationCourses;
     protected String name;
 
     //主界面打开的类型
@@ -104,10 +105,6 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
     @Override
     protected void initData() {
 
-
-        for (int i = 0; i < 10; ++i) {
-            mNevigationCourseAdapter.addItem(i, "12312");
-        }
     }
 
     @Override
@@ -146,7 +143,7 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
 
     @Override
     public void onItemClick(View view, int position) {
-        startCourseActivity(mCourses.get(position), position);
+        startCourseActivity(mNevigationCourses.get(position), position);
 
     }
 
@@ -195,8 +192,8 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
         mDrawerCourseList = (RecyclerView) findViewById(R.id.list_main_drawer_course);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
         mDrawerCourseList.setLayoutManager(linearLayoutManager);
-        mCourses = new ArrayList<>();
-        mNevigationCourseAdapter = new NevigationCourseAdapter(mContext, mCourses);
+        mNevigationCourses = new ArrayList<>();
+        mNevigationCourseAdapter = new NevigationCourseAdapter(mContext, mNevigationCourses);
         mDrawerCourseList.setAdapter(mNevigationCourseAdapter);
     }
 
@@ -252,7 +249,8 @@ public abstract class DrawerBaseActivity extends BaseActivity implements View.On
         startActivity(intent);
     }
 
-    ;
 
-
+    public NevigationCourseAdapter getNevigationCourseAdapter() {
+        return mNevigationCourseAdapter;
+    }
 }
