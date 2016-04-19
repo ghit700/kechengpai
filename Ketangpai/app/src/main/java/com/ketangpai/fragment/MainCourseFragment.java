@@ -14,12 +14,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-
 import com.ketangpai.activity.CourseActivity;
 import com.ketangpai.adapter.CourseSMainCourseAdapter;
 import com.ketangpai.adapter.CourseTMainCourseAdapter;
 import com.ketangpai.base.BaseAdapter;
 import com.ketangpai.base.BaseFragment;
+import com.ketangpai.bean.Course;
 import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
 import com.shamanland.fab.FloatingActionButton;
@@ -28,11 +28,10 @@ import com.shamanland.fab.ShowHideOnScroll;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Created by nan on 2016/3/15.
  */
-public class MainCourseFragment extends BaseFragment implements View.OnClickListener, OnItemClickListener, DialogInterface.OnDismissListener {
+public class MainCourseFragment extends BaseFragment implements View.OnClickListener, OnItemClickListener, DialogInterface.OnDismissListener, SwipeRefreshLayout.OnRefreshListener {
 
     //view
     private FloatingActionButton mAddBtn;
@@ -47,10 +46,9 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     private Animation mAddOpenAnim;
     private Animation mAddCloseAnim;
 
-
     //变量
     //course数组
-    private List<String> mCourses;
+    private List<Course> mCourses;
     //判断addBtn是否open
     private boolean isBtnOpen = true;
     //判断是老师还是学生
@@ -65,6 +63,8 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     protected void initVarious() {
         super.initVarious();
         type = mContext.getSharedPreferences("user", 0).getInt("type", -1);
+        initAddBtnAnim();
+
     }
 
     @Override
@@ -72,30 +72,35 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fresh_main_course);
         mAddBtn = (FloatingActionButton) view.findViewById(R.id.btn_main_add);
         ininMainCourseList(view);
+
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
     }
 
     @Override
     protected void initData() {
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-        initAddBtnAnim();
-        for (int i = 0; i < 10; ++i) {
-            mMainCourseAdapter.addItem(0, "11--" + i);
-        }
+        
     }
-
 
     @Override
     protected void initListener() {
         mAddBtn.setOnClickListener(this);
         mMainCourseList.setOnTouchListener(new ShowHideOnScroll(mAddBtn));
         mMainCourseAdapter.setOnItemClickListener(this);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
     }
 
     @Override
     protected void loadData() {
 
+        //初次加载数据
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+            }
+        });
+        onRefresh();
     }
-
 
     @Override
     public void onClick(View v) {
@@ -108,12 +113,17 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
                 mAddDialog.dismiss();
                 break;
             case R.id.btn_addDialog_create:
+                createCourse();
                 mAddDialog.dismiss();
                 break;
 
             default:
                 break;
         }
+
+    }
+
+    private void createCourse() {
 
     }
 
@@ -125,9 +135,9 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
         startActivity(intent);
     }
 
-
     private void showAddDialog() {
         mAddDialog = new AlertDialog.Builder(mContext).create();
+        mAddDialog.setCanceledOnTouchOutside(false);
         View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_add, null);
         TextView dialogTitle = (TextView) view.findViewById(R.id.tv_addDialog_title);
         EditText dialogCourse = (EditText) view.findViewById(R.id.et_addDialog_courseName);
@@ -148,6 +158,9 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
             dialogCourse.setHint("请输入班级邀请码");
             btnCreate.setText("加入");
         }
+
+        btnCancel.setOnClickListener(this);
+        btnCreate.setOnClickListener(this);
 
         mAddDialog.setView(view);
         mAddDialog.show();
@@ -172,7 +185,6 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
         mAddOpenAnim = AnimationUtils.loadAnimation(mContext, R.anim.fab_rotate_open);
     }
 
-
     //AddBtn open or close时设置动画
     private void changeAddBtnAnim() {
 
@@ -189,4 +201,10 @@ public class MainCourseFragment extends BaseFragment implements View.OnClickList
     public void onDismiss(DialogInterface dialog) {
         changeAddBtnAnim();
     }
+
+    @Override
+    public void onRefresh() {
+
+    }
+
 }

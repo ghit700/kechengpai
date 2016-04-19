@@ -49,7 +49,7 @@ public class LoginPresenter extends BasePresenter<LoginViewInterface> {
 
             @Override
             public void onError(String error) {
-                Log.i(Constant.LOG_TAG, error);
+//                Log.i(Constant.LOG_TAG, error);
             }
         });
     }

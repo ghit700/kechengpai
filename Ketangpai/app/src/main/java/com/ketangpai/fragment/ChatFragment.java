@@ -1,6 +1,7 @@
 package com.ketangpai.fragment;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
@@ -27,10 +28,10 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener, 
     EditText mSendTextEt;
     ImageView mSendtBtn;
     RecyclerView mChatList;
+    SwipeRefreshLayout mSwipeRefreshLayout;
 
     //adapter
     ChatAdapter mChatAdapter;
-
 
     //变量
     ArrayList mChatRecondList;
@@ -45,7 +46,17 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener, 
     protected void initView() {
         mSendtBtn = (ImageView) view.findViewById(R.id.img_chat_send);
         mSendTextEt = (EditText) view.findViewById(R.id.et_chat_sendText);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refesh_chat);
         initChatList();
+
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
+
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                mSwipeRefreshLayout.setRefreshing(true);
+            }
+        });
     }
 
     @Override
@@ -96,8 +107,6 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener, 
         }
     }
 
-
-
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -110,9 +119,9 @@ public class ChatFragment extends BaseFragment implements View.OnClickListener, 
 
     @Override
     public void afterTextChanged(Editable s) {
-        if(mSendTextEt.length()==0){
+        if (mSendTextEt.length() == 0) {
             mSendtBtn.setImageResource(R.drawable.ic_send_default);
-        }else{
+        } else {
             mSendtBtn.setImageResource(R.drawable.ic_send_light);
         }
     }

@@ -30,7 +30,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class LoginActivity extends BasePresenterActivity<LoginViewInterface, LoginPresenter> implements View.OnClickListener, LoginViewInterface {
 
-    public static final String TAG = "===loginactivity";
+    public static final String TAG = "===LoginActivity";
 
     //    view
     private EditText mName, mPassword;

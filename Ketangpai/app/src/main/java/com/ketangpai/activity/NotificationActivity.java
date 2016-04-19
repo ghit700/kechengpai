@@ -36,6 +36,7 @@ public class NotificationActivity extends BaseToolbarActivity {
     @Override
     protected void initListener() {
         super.initListener();
+        getSupportActionBar().setTitle("通知");
     }
 
     @Override

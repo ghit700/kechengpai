@@ -28,7 +28,9 @@
         <activity android:name="com.ketangpai.activity.MainActivity"></activity>
         <activity android:name="com.ketangpai.activity.SearchActivity"></activity>
         <activity android:name="com.ketangpai.activity.CourseActivity"></activity>
-        <activity android:name="com.ketangpai.activity.ChatActivity"></activity>
+        <activity
+            android:name="com.ketangpai.activity.ChatActivity"
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity android:name="com.ketangpai.activity.NotificationActivity"></activity>
         <activity android:name="com.ketangpai.activity.AccountActivity"></activity>
         <activity android:name="com.ketangpai.activity.AddHomeWorkActivity"></activity>
@@ -37,5 +39,6 @@
         <activity android:name="com.ketangpai.activity.NoticeActivity"></activity>
         <activity android:name="com.ketangpai.activity.DataActivity"></activity>
         <activity android:name="com.ketangpai.activity.ContactsActivity"></activity>
+        <activity android:name="com.ketangpai.activity.AccountUpdateActivity"></activity>
     </application>
 </manifest>

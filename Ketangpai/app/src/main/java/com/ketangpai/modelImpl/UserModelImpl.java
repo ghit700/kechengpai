@@ -2,10 +2,12 @@ package com.ketangpai.modelImpl;
 
 import android.util.Log;
 
+import com.ketangpai.activity.AccountUpdateActivity;
 import com.ketangpai.activity.LoginActivity;
 import com.ketangpai.bean.User;
 import com.ketangpai.constant.Urls;
 import com.ketangpai.fragment.AccountFragment;
+import com.ketangpai.fragment.AccountUpdateFragment;
 import com.ketangpai.model.UserModel;
 import com.ketangpai.utils.VolleyUtils;
 
@@ -48,9 +50,9 @@ public class UserModelImpl implements UserModel {
         params.put("columnName", columnName);
         params.put("colunmValue", columnValue);
 
-        Log.i(AccountFragment.TAG,"account="+account+" colunmnName="+columnName+"  value="+columnValue);
+        Log.i(AccountUpdateFragment.TAG,"account="+account+" colunmnName="+columnName+"  value="+columnValue);
         String url = Urls.SERVER_HOST + Urls.UPDATE_USER_INFO;
-        VolleyUtils.post(url, AccountFragment.TAG, params, resultCallback);
+        VolleyUtils.post(url, AccountUpdateFragment.TAG, params, resultCallback);
     }
 
 }

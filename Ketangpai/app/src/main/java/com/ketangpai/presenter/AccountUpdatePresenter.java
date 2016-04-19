@@ -4,19 +4,20 @@ import android.util.Log;
 
 import com.ketangpai.base.BasePresenter;
 import com.ketangpai.fragment.AccountFragment;
+import com.ketangpai.fragment.AccountUpdateFragment;
 import com.ketangpai.model.UserModel;
 import com.ketangpai.modelImpl.UserModelImpl;
 import com.ketangpai.utils.VolleyUtils;
-import com.ketangpai.viewInterface.AccountViewInterface;
+import com.ketangpai.viewInterface.AccountUpdateViewInterface;
 
 /**
  * Created by Administrator on 2016/4/18.
  */
-public class AccountPresenter extends BasePresenter<AccountViewInterface> {
+public class AccountUpdatePresenter extends BasePresenter<AccountUpdateViewInterface> {
     UserModel userModel;
-    AccountViewInterface accountViewInterface;
+    AccountUpdateViewInterface accountViewInterface;
 
-    public AccountPresenter() {
+    public AccountUpdatePresenter() {
         userModel = new UserModelImpl();
     }
 
@@ -24,7 +25,7 @@ public class AccountPresenter extends BasePresenter<AccountViewInterface> {
         if (isViewAttached()) {
             accountViewInterface = getView();
         } else {
-            Log.i(AccountFragment.TAG, "没有连接viwe");
+            Log.i(AccountUpdateFragment.TAG, "没有连接viwe");
         }
 
         userModel.updateUserInfo(account, columnName, columnValue, new VolleyUtils.ResultCallback() {
@@ -35,7 +36,7 @@ public class AccountPresenter extends BasePresenter<AccountViewInterface> {
 
             @Override
             public void onError(String error) {
-                Log.i(AccountFragment.TAG, error);
+                Log.i(AccountUpdateFragment.TAG, error);
             }
         });
     }

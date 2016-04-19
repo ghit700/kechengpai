@@ -1,10 +1,14 @@
 package com.ketangpai.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.ketangpai.activity.ChatActivity;
 import com.ketangpai.adapter.MessageAdapter;
 import com.ketangpai.base.BaseFragment;
+import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
 
 import java.util.ArrayList;
@@ -13,7 +17,7 @@ import java.util.List;
 /**
  * Created by nan on 2016/4/17.
  */
-public class MessageFragment extends BaseFragment {
+public class MessageFragment extends BaseFragment implements OnItemClickListener {
 
     //view
     RecyclerView list_messages;
@@ -55,11 +59,19 @@ public class MessageFragment extends BaseFragment {
 
     @Override
     protected void initListener() {
-
+        mMessageAdapter.setOnItemClickListener(this);
     }
 
     @Override
     protected void loadData() {
+
+    }
+
+    @Override
+    public void onItemClick(View view, int position) {
+        Intent intent = new Intent(mContext, ChatActivity.class);
+        intent.putExtra("Name", (String) mMessages.get(position));
+        startActivity(intent);
 
     }
 }

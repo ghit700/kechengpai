@@ -11,6 +11,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.ketangpai.base.BaseAdapter;
+import com.ketangpai.bean.Course;
 import com.ketangpai.listener.OnItemClickListener;
 import com.ketangpai.nan.ketangpai.R;
 import com.ketangpai.view.MyPopupMenu;
@@ -20,10 +21,9 @@ import java.util.List;
 /**
  * Created by nan on 2016/3/14.
  */
-public class CourseSMainCourseAdapter extends BaseAdapter<String> implements PopupMenu.OnMenuItemClickListener {
+public class CourseSMainCourseAdapter extends BaseAdapter<Course> implements PopupMenu.OnMenuItemClickListener {
 
-
-    public CourseSMainCourseAdapter(Context mContext, List<String> mDataList) {
+    public CourseSMainCourseAdapter(Context mContext, List<Course> mDataList) {
         super(mContext, mDataList);
     }
 
@@ -32,9 +32,8 @@ public class CourseSMainCourseAdapter extends BaseAdapter<String> implements Pop
         return R.layout.item_main_student_course;
     }
 
-
     @Override
-    protected void bindData(ViewHolder holder, int position, String s) {
+    protected void bindData(ViewHolder holder, int position, Course s) {
         //初始化view
         TextView CourseName = (TextView) holder.getViewById(R.id.tv_item_courseName);
         TextView CourseCode = (TextView) holder.getViewById(R.id.tv_item_courseCode);
@@ -55,15 +54,15 @@ public class CourseSMainCourseAdapter extends BaseAdapter<String> implements Pop
         });
 
         //初始化view的值
-
+        StudentName.setText(s.getTeacher());
+        CourseName.setText(s.getName());
+        CourseCode.setText(s.getCode());
 
     }
-
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
         return true;
     }
-
 
 }
