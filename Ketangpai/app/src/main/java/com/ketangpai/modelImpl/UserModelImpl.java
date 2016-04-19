@@ -47,6 +47,8 @@ public class UserModelImpl implements UserModel {
         params.put("account", account);
         params.put("columnName", columnName);
         params.put("colunmValue", columnValue);
+
+        Log.i(AccountFragment.TAG,"account="+account+" colunmnName="+columnName+"  value="+columnValue);
         String url = Urls.SERVER_HOST + Urls.UPDATE_USER_INFO;
         VolleyUtils.post(url, AccountFragment.TAG, params, resultCallback);
     }

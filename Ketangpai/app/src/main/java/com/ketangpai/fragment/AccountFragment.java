@@ -42,7 +42,7 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
     private String account;
     private String password;
     private InputMethodManager mImm;
-    private String columnName, columnNameCode;
+    private String mColumnName, mColumnNameCode, mValue;
 
     @Override
     protected void initVarious() {
@@ -161,41 +161,21 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
             @Override
             public void onClick(View v) {
                 if (!et_dialog_content_new.equals("")) {
-                    showUpdateOnCompleteDialog(columnName, 3);
-                } else {
-                    String columnName = et_dialog_content_new.getText().toString();
-                    mPresenter.updateUserInfo(account, columnNameCode, columnName);
-                    switch (type) {
-                        case 0:
-                            tv_name.setText(columnName);
-                            mContext.getSharedPreferences("user", 0).edit().putString("name", columnName).commit();
-                            break;
-                        case 1:
-                            tv_school.setText(columnName);
-                            mContext.getSharedPreferences("user", 0).edit().putString("scholl", columnName).commit();
-
-                            break;
-                        case 2:
-                            tv_number.setText(columnName);
-                            mContext.getSharedPreferences("user", 0).edit().putString("number", columnName).commit();
-
-                            break;
-
-                        default:
-                            break;
-                    }
+                    mValue = et_dialog_content_new.getText().toString();
+                    mPresenter.updateUserInfo(account, mColumnNameCode, mValue);
                     dialog.dismiss();
-                    showUpdateOnCompleteDialog(columnName, 0);
+                    showUpdateOnCompleteDialog(mColumnName, 3);
+                } else {
+                    showUpdateOnCompleteDialog(mColumnName, 0);
                 }
             }
 
         });
 
-
         switch (type) {
             case 0:
-                columnNameCode = "name";
-                columnName = "名字";
+                mColumnNameCode = "name";
+                mColumnName = "名字";
                 tv_dialog_title.setText("名字设置");
                 tv_dialog_content.setText("名字");
                 et_dialog_content_new.setHint("请输入新名字");
@@ -203,8 +183,8 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
 
                 break;
             case 1:
-                columnNameCode = "school";
-                columnName = "学校";
+                mColumnNameCode = "school";
+                mColumnName = "学校";
 
                 tv_dialog_title.setText("学校设置");
                 tv_dialog_content.setText("学校");
@@ -212,12 +192,12 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
                 et_dialog_content_new.setText(school);
                 break;
             case 2:
-                columnNameCode = "number";
-                columnName = "学号";
+                mColumnNameCode = "number";
+                mColumnName = "学号";
                 tv_dialog_title.setText("学号设置");
                 tv_dialog_content.setText("学号");
                 et_dialog_content_new.setHint("请输入新学号");
-                et_dialog_content_new.setText(number);
+                et_dialog_content_new.setText(String.valueOf(number));
 
                 break;
 
@@ -261,7 +241,6 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
 
         });
 
-
         dialog.setContentView(view);
     }
 
@@ -272,7 +251,7 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
                     showUpdateOnCompleteDialog("密码", 2);
                 } else {
                     mPresenter.updateUserInfo(account, "password", newPwd);
-                    mContext.getSharedPreferences("user", 0).edit().putString("password", newPwd).commit();
+                    mValue = newPwd;
                     dialog.dismiss();
                     showUpdateOnCompleteDialog("密码", 3);
                 }
@@ -324,7 +303,6 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
         }
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == IntentUtils.OPEN_IMGAE && resultCode == getActivity().RESULT_OK) {
@@ -334,22 +312,32 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
     @Override
     public void updateUserInfoOnComplete(String columnName) {
+        Log.i(TAG, "result  colunmnName=" + columnName);
         if (columnName.equals("-1")) {
             new AlertDialog.Builder(mContext).setTitle("修改失败").setPositiveButton("确认", null).create().show();
-        } else {
-            Log.i(TAG, columnName);
 
+        } else {
             switch (columnName) {
                 case "password":
+                    mContext.getSharedPreferences("user", 0).edit().putString("password", mValue).commit();
+                    password = mValue;
                     break;
                 case "school":
+                    tv_school.setText(mValue);
+                    mContext.getSharedPreferences("user", 0).edit().putString("scholl", mValue).commit();
+                    school = mValue;
                     break;
                 case "number":
+                    tv_number.setText(mValue);
+                    mContext.getSharedPreferences("user", 0).edit().putInt("number", Integer.parseInt(mValue)).commit();
+                    number = Integer.parseInt(mValue);
                     break;
                 case "name":
+                    tv_name.setText(mValue);
+                    mContext.getSharedPreferences("user", 0).edit().putString("name", mValue).commit();
+                    name = mValue;
                     break;
                 default:
                     break;
@@ -357,3 +345,5 @@ public class AccountFragment extends BasePresenterFragment<AccountViewInterface,
         }
     }
 }
+
+
