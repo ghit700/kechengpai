@@ -1,0 +1,386 @@
+[
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_main_nevigation_course.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_main_nevigation_course.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_notification_content.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_notification_content.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_message.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_message.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_message_group.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_message_group.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_register_teacher.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\dialog_register_teacher.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_item.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_media_action.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_add_homework_data.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_add_homework_data.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_notification.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_notification.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_message_group_item.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_message_group_item.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_layout_snackbar_include.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_big_media.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_message.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_message.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_main_teacher_course.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_main_teacher_course.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_register_student.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\dialog_register_student.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base_course_add_tab.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\activity_base_course_add_tab.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_addhomework.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_addhomework.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_main.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_main.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\toolbar.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\toolbar.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_chat_acceptor.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_chat_acceptor.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_base_nevigation.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\activity_base_nevigation.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_main_course.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_main_course.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\navigation.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\navigation.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_account_update.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_account_update.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_course.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_course.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_account.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_account.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_search_towline.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_search_towline.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_t_homework.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_t_homework.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_loading.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\dialog_loading.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_t_register.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_t_register.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_course_notice.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_course_notice.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_main_student_course.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_main_student_course.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_notification_time.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_notification_time.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_splash.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\progressbar_loading.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\progressbar_loading.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_item_subheader.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_chat.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_chat.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_account_update_password.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_account_update_password.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_search.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\activity_search.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_cancel_action.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_contacts.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_contacts.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_data.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_data.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_search_tab.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_search_tab.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_course_t_exam.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_course_t_exam.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_add.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\dialog_add.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_actionsheet.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\dialog_actionsheet.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_course_tab.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_course_tab.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_course_data.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_course_data.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_media.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_chat_receiver.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_chat_receiver.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\23.1.1\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_notice.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_notice.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_addnotice.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\fragment_addnotice.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_course_t_homework.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\item_course_t_homework.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\layout\\notification_template_part_chronometer.xml"
+    }
+]

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="arm64-v8a,armeabi-v7a,armeabi"
+    api-level="21"
+    density="xxhdpi"
+    format="7"
+    timestamp="1553905415957" >
+
+    <task
+        name="javac"
+        duration="1163" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="113" />
+    <task
+        name="verifier"
+        duration="101" />
+
+    <artifact
+        location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+        type="DEX" />
+
+    <build timestamp="554382288753" >
+        <artifact
+            location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build timestamp="855034345754" >
+        <artifact
+            location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="1110950195330" >
+        <artifact
+            location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_9\classes.dex"
+            type="DEX" />
+        <artifact
+            location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_4\classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="1412087374726" >
+        <artifact
+            location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_5\classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="1553905415957" >
+        <artifact
+            location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
+            type="DEX" />
+    </build>
+    <build timestamp="7148809732867" >
+        <artifact
+            location="H:\MyAs\kechengpai-bomb\Kechengpai-bomb\app\build\outputs\apk\app-debug.apk"
+            type="MAIN" />
+    </build>
+
+</instant-run>

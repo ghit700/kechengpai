@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\blank_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\blank_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\base_toolbar_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\base_toolbar_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\add_homework_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\add_homework_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\teacher_courese_code_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\teacher_courese_code_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\t_exam_edit_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\t_exam_edit_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\teacher_courese_edit_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\teacher_courese_edit_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\t_homework_edit_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\t_homework_edit_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\notice_edit_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\notice_edit_menu.xml"
+    },
+    {
+        "merged": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\build\\intermediates\\res\\merged\\debug\\menu\\student_courese_edit_menu.xml",
+        "source": "H:\\MyAs\\kechengpai-bomb\\Kechengpai-bomb\\app\\src\\main\\res\\menu\\student_courese_edit_menu.xml"
+    }
+]
